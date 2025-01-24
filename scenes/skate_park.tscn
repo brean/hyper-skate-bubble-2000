@@ -1,34 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://40re6c5wyw4a"]
+[gd_scene load_steps=5 format=3 uid="uid://40re6c5wyw4a"]
 
 [ext_resource type="PackedScene" uid="uid://b8cyxt7wip24t" path="res://models/kenney_skate_park/bowl-corner-inner.glb" id="1_bkmln"]
 [ext_resource type="PackedScene" uid="uid://c3o1402g8nb1h" path="res://models/kenney_skate_park/bowl-side.glb" id="2_w34ni"]
 [ext_resource type="PackedScene" uid="uid://bl1t0q2rhinso" path="res://models/kenney_skate_park/floor-concrete.glb" id="3_ouc0w"]
+[ext_resource type="PackedScene" uid="uid://cuv28thwbvyc8" path="res://models/kenney_skate_park/bowl-corner-outer.glb" id="4_ndo7a"]
 
 [node name="SkatePark" type="Node3D"]
 
 [node name="bowl-corner-inner2" parent="." instance=ExtResource("1_bkmln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-
-[node name="bowl-corner-inner3" parent="." instance=ExtResource("1_bkmln")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.5, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
 
 [node name="bowl-side2" parent="." instance=ExtResource("2_w34ni")]
-transform = Transform3D(33.605, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 0.5)
-
-[node name="bowl-corner-inner4" parent="." instance=ExtResource("1_bkmln")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 34.5, 0, 8.5)
-
-[node name="bowl-corner-inner5" parent="." instance=ExtResource("1_bkmln")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 8.5)
-
-[node name="bowl-side3" parent="." instance=ExtResource("2_w34ni")]
-transform = Transform3D(-33.605, 0, -8.74229e-08, 0, 1, 0, 2.93784e-06, 0, -1, 17.5, 0, 8.5)
+transform = Transform3D(33.605, 0, 0, 0, 1, 0, 0, 0, 1, 17.7434, 0, -2.5)
 
 [node name="bowl-side4" parent="." instance=ExtResource("2_w34ni")]
-transform = Transform3D(-3.06854e-07, 0, -1, 0, 1, 0, 7.02, 0, -4.37114e-08, 34.5, 0, 4.5)
+transform = Transform3D(-33.605, 0, 8.74228e-08, 0, 1, 0, -2.93784e-06, 0, -1, 17.7434, 0, -3.5)
+
+[node name="bowl-corner-inner4" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 39.5, 0, 2.5)
+
+[node name="bowl-corner-inner5" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 2.5)
+
+[node name="bowl-side3" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-38.1891, 0, -8.74229e-08, 0, 1, 0, 3.33859e-06, 0, -1, 19.9158, 0, 2.5)
 
 [node name="bowl-side5" parent="." instance=ExtResource("2_w34ni")]
-transform = Transform3D(-3.06854e-07, 0, 1, 0, 1, 0, -7.02, 0, -4.37114e-08, 0.5, 0, 4.5)
+transform = Transform3D(-1.74846e-07, 0, 1, 0, 1, 0, -4, 0, -4.37114e-08, 0.5, 0, 0)
 
 [node name="floor-concrete2" parent="." instance=ExtResource("3_ouc0w")]
-transform = Transform3D(33.605, 0, 0, 0, 1, 0, 0, 0, 7.02, 17.5, 0, 4.5)
+transform = Transform3D(-1.32194e-06, 0, 58.9921, 0, 1, 0, -30.2426, 0, -2.57863e-06, 28.0129, 0.0433249, -12.5071)
+
+[node name="bowl-corner-outer2" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -2.512)
+
+[node name="bowl-corner-outer3" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 0, -3.52174)
