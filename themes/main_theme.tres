@@ -1,3 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://byll1hgbh48mq"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://byll1hgbh48mq"]
+
+[ext_resource type="FontFile" uid="uid://bj7a4p3sgtere" path="res://fonts/EricaOne-Regular.ttf" id="1_culkn"]
 
 [resource]
+default_font = ExtResource("1_culkn")
+default_font_size = 50
