@@ -24,10 +24,10 @@ compositor = SubResource("Compositor_3r1a1")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.340624, 1.69337, 1.66319)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.341, 1.693, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1.41421, -1.22474, 0.707107, 0, 1, 1.73205, -1.41421, -1.22474, 0.707107, 3.15795, 2.84812, 2.82608)
+transform = Transform3D(-8.74228e-08, 1.73205, -1, 0, 1, 1.73205, 2, 7.57103e-08, -4.37114e-08, -0.520493, 2.84812, 0.198236)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
 
