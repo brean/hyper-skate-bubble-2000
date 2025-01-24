@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0rv1ctkxnanh"]
+
+[ext_resource type="PackedScene" uid="uid://cpff7l1gha8kv" path="res://models/mc.glb" id="1_i2t6n"]
+[ext_resource type="Script" path="res://models/bubble.gd" id="2_72tv4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_30ary"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8fn7n"]
+sky_material = SubResource("ProceduralSkyMaterial_30ary")
+
+[sub_resource type="Environment" id="Environment_adyvq"]
+background_mode = 2
+sky = SubResource("Sky_8fn7n")
+tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k2asa"]
+
+[sub_resource type="Compositor" id="Compositor_4raqc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kswou"]
+radius = 1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_adyvq")
+camera_attributes = SubResource("CameraAttributesPractical_k2asa")
+compositor = SubResource("Compositor_4raqc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+sky_mode = 1
+
+[node name="Bubble" type="CharacterBody3D" parent="."]
+script = ExtResource("2_72tv4")
+
+[node name="Camera3D" type="Camera3D" parent="Bubble"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, -2)
+current = true
+fov = 90.0
+
+[node name="Collider" type="CollisionShape3D" parent="Bubble"]
+shape = SubResource("SphereShape3D_kswou")
+
+[node name="Mesh" parent="Bubble" instance=ExtResource("1_i2t6n")]
+
+[node name="mc" parent="." instance=ExtResource("1_i2t6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45707, 0, 2.6369)
