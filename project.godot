@@ -14,6 +14,10 @@ config/name="hyper-skate-bubble-2000"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
