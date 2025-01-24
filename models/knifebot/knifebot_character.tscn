@@ -247,14 +247,14 @@ _data = {
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_icrbv"]
-height = 0.4
-radius = 0.628461
+height = 0.151126
+radius = 0.153996
 
 [node name="knifebot_character" type="CharacterBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_t0dls")
 
 [node name="Node" type="Node3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="body" type="Node3D" parent="Node"]
 
@@ -300,5 +300,8 @@ libraries = {
 autoplay = "drive"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0754338, 0)
 shape = SubResource("CylinderShape3D_icrbv")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00595015, 0)
