@@ -16,9 +16,6 @@
 
 [node name="SkatePark" parent="." instance=ExtResource("1_f6j3o")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.612372, 0.353553, 0, 0.5, 0.866025, -0.707107, -0.612372, 0.353553, 2.5, 5, 2.5)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ykkkh")
 camera_attributes = SubResource("CameraAttributesPractical_0y4bq")
@@ -27,7 +24,10 @@ compositor = SubResource("Compositor_3r1a1")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.252811, 1.69337, -0.25586)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.340624, 1.69337, 1.66319)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1.41421, -1.22474, 0.707107, 0, 1, 1.73205, -1.41421, -1.22474, 0.707107, 3.15795, 2.84812, 2.82608)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
 
