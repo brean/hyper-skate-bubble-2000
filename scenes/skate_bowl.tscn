@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0brgewi1wf4p"]
+[gd_scene load_steps=4 format=3 uid="uid://s51thyyflsar"]
 
 [ext_resource type="PackedScene" uid="uid://b8cyxt7wip24t" path="res://models/kenney_skate_park/bowl-corner-inner.glb" id="1_lujbn"]
 [ext_resource type="PackedScene" uid="uid://c3o1402g8nb1h" path="res://models/kenney_skate_park/bowl-side.glb" id="2_wp05m"]
