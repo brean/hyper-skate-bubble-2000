@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=7 format=3 uid="uid://duw12wjdvnqia"]
 
 [ext_resource type="PackedScene" uid="uid://40re6c5wyw4a" path="res://scenes/skate_park.tscn" id="1_f6j3o"]
 
@@ -7,6 +7,10 @@
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0y4bq"]
 
 [sub_resource type="Compositor" id="Compositor_3r1a1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g66tp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gi1ex"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,3 +25,15 @@ camera_attributes = SubResource("CameraAttributesPractical_0y4bq")
 compositor = SubResource("Compositor_3r1a1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.252811, 1.69337, -0.25586)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/RigidBody3D"]
+mesh = SubResource("SphereMesh_g66tp")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D"]
+shape = SubResource("SphereShape3D_gi1ex")
