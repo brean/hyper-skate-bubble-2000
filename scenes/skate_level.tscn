@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=33 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b3s07fijrt5ao" path="res://models/kenney_skate_park/obstacle-box.glb" id="23_spvkw"]
 [ext_resource type="PackedScene" uid="uid://dl0wr4vrteafx" path="res://models/kenney_skate_park/obstacle-end.glb" id="24_v81bo"]
 [ext_resource type="PackedScene" uid="uid://nddlgixtdbgn" path="res://models/kenney_skate_park/pallet.glb" id="25_u14ck"]
+[ext_resource type="PackedScene" uid="uid://cvy8hnplwcpcu" path="res://models/collectables/finish.gltf" id="26_iyh40"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqe5"]
 size = Vector3(0.0664062, 1, 4.01868)
@@ -72,10 +73,10 @@ shape = SubResource("BoxShape3D_6iqe5")
 transform = Transform3D(10, 0, -4.33013, 0, 5, 0, 17.3205, 0, 2.5, 22.2296, 1.90735e-06, -5.6721)
 
 [node name="flagCheckers" parent="." instance=ExtResource("4_dej4a")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -30.7175, 0.082068, 54.9486)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -28.3999, 0.082068, 58.3905)
 
 [node name="flagCheckers2" parent="." instance=ExtResource("4_dej4a")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -44.935, 0.082068, 54.9486)
+transform = Transform3D(-9, 0, 7.15256e-07, 0, 9, 0, -7.15256e-07, 0, -9, -51.3999, 0.082068, 46.3905)
 
 [node name="pylon" parent="." instance=ExtResource("7_mvbej")]
 transform = Transform3D(5.75646, 0, 5.55546, 0, 8, 0, -5.55546, 0, 5.75646, -26.9152, 0.0745964, 51.1336)
@@ -175,3 +176,6 @@ transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 15, -42.4761, 0.0199966, 9.9574
 
 [node name="pallet2" parent="." instance=ExtResource("25_u14ck")]
 transform = Transform3D(8.48104, 0, 5.2983, 0, 10, 0, -5.2983, 0, 8.48104, -34.5352, -0.0723476, 31.6371)
+
+[node name="blockbench_export2" parent="." instance=ExtResource("26_iyh40")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -39.865, 0.0200043, 51.9981)
