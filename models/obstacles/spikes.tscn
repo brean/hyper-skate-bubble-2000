@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c73qeic8qlwia"]
+
+[ext_resource type="PackedScene" uid="uid://cwju743g0m0ly" path="res://models/obstacles/spikes.glb" id="1_nd6vj"]
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_wuotu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnd8f"]
+size = Vector3(1, 0.30304, 1)
+
+[node name="Spikes" type="Node3D"]
+script = ExtResource("1_wuotu")
+
+[node name="spikes" parent="." instance=ExtResource("1_nd6vj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433642, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.142242, 0)
+shape = SubResource("BoxShape3D_pnd8f")

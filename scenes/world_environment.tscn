@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://0d6v34ejg2gr"]
+
+[ext_resource type="Sky" uid="uid://dq2xf5nivn2g8" path="res://graphics/hyper_sky.tres" id="1_c1mhj"]
+[ext_resource type="Script" path="res://scenes/world_environment.gd" id="2_vmjti"]
+
+[sub_resource type="Gradient" id="Gradient_nn72l"]
+colors = PackedColorArray(1.41384e-07, 0.100368, 0.138357, 1, 0.974978, 0.814727, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gwyq3"]
+gradient = SubResource("Gradient_nn72l")
+
+[sub_resource type="Environment" id="Environment_fim2q"]
+background_mode = 2
+sky = ExtResource("1_c1mhj")
+ambient_light_color = Color(2.76752e-07, 0.167904, 0.224959, 1)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.5
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 1.5
+adjustment_color_correction = SubResource("GradientTexture1D_gwyq3")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_56rxg"]
+
+[sub_resource type="Compositor" id="Compositor_cn8io"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_fim2q")
+camera_attributes = SubResource("CameraAttributesPractical_56rxg")
+compositor = SubResource("Compositor_cn8io")
+script = ExtResource("2_vmjti")
+knifebot_closest = 2.0
+knifebot_furthest = 10.0

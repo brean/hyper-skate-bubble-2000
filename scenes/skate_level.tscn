@@ -160,7 +160,7 @@ transform = Transform3D(-6.47708, 0, 7.61889, 0, 10, 0, -7.61889, 0, -6.47708, -
 transform = Transform3D(-7.74017, 0, 6.33165, 0, 10, 0, -6.33165, 0, -7.74017, -119.821, -0.440453, -124.389)
 
 [node name="tent" parent="." instance=ExtResource("20_q7b6l")]
-transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, -141.147, 0.0200005, -64.2436)
+transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, -142.564, 0.0200005, -64.2436)
 
 [node name="treeLarge" parent="." instance=ExtResource("21_htcvp")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -95.4218, 0.0200005, -23.4935)
