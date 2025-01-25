@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=12 format=3 uid="uid://duw12wjdvnqia"]
 
 [ext_resource type="Sky" uid="uid://dq2xf5nivn2g8" path="res://graphics/hyper_sky.tres" id="1_ua3nr"]
 [ext_resource type="PackedScene" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" path="res://scenes/bubble.tscn" id="2_t3376"]
+[ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
+[ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
+[ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="6_7qsua"]
 
 [sub_resource type="Environment" id="Environment_fim2q"]
 background_mode = 2
@@ -59,3 +62,15 @@ movement_speed = 50
 jump_force = 6
 
 [node name="SkateLevel" parent="." instance=ExtResource("2_g6jql")]
+
+[node name="sound" type="Node" parent="."]
+
+[node name="main_theme" type="AudioStreamPlayer" parent="sound" node_paths=PackedStringArray("music_player")]
+stream = ExtResource("4_60cig")
+autoplay = true
+parameters/looping = true
+script = ExtResource("5_n1elo")
+music_player = NodePath(".")
+
+[node name="plop" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("6_7qsua")
