@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://bj8dsmmy4uqjh"]
 
-[ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_1hvkk"]
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_80k55"]
+[ext_resource type="Script" uid="uid://d3poj11xejqno" path="res://scripts/audio_fader.gd" id="1_1hvkk"]
+[ext_resource type="Script" uid="uid://qf64wvgy5mkd" path="res://scripts/main_menu.gd" id="1_80k55"]
 [ext_resource type="Texture2D" uid="uid://cwrscweq8jgyg" path="res://graphics/images/main_menu/background1.png" id="1_ourkq"]
 [ext_resource type="Texture2D" uid="uid://bep1hwmljclcx" path="res://graphics/images/main_menu/background2.png" id="2_2a28b"]
 [ext_resource type="Texture2D" uid="uid://bs0phmdhjhnkl" path="res://graphics/images/main_menu/background3.png" id="3_7hnsr"]
@@ -13,13 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://jdkvwpc27cu8" path="res://graphics/images/main_menu/button_pressed.png" id="8_t1eaf"]
 [ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="8_un25m"]
 [ext_resource type="Texture2D" uid="uid://t7o3e8xkv37w" path="res://graphics/images/main_menu/button_hover.png" id="9_agarx"]
-[ext_resource type="Script" path="res://scripts/opacity_fader.gd" id="11_8c70d"]
+[ext_resource type="Script" uid="uid://d0krmi2rbbyy3" path="res://scripts/opacity_fader.gd" id="11_8c70d"]
 [ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="11_k7np0"]
 [ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="13_hq61g"]
-[ext_resource type="Script" path="res://scripts/btn_start.gd" id="14_277qq"]
-[ext_resource type="Script" path="res://scripts/switch_scene.gd" id="15_br3fc"]
-[ext_resource type="Script" path="res://scripts/btn_continue.gd" id="15_rstw1"]
-[ext_resource type="Script" path="res://scripts/btn_end.gd" id="16_w7vf0"]
+[ext_resource type="Script" uid="uid://ck7knsqpc5n2k" path="res://scripts/btn_start.gd" id="14_277qq"]
+[ext_resource type="Script" uid="uid://c542hr8nh77ly" path="res://scripts/switch_scene.gd" id="15_br3fc"]
+[ext_resource type="Script" uid="uid://cypxk2bsmtg7s" path="res://scripts/btn_continue.gd" id="15_rstw1"]
+[ext_resource type="Script" uid="uid://b4qgnnqgifvh6" path="res://scripts/btn_end.gd" id="16_w7vf0"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001

@@ -58,7 +58,6 @@ func _physics_process(delta: float) -> void:
 		global_transform = global_transform.interpolate_with(xform, 0.2)
 
 	move_and_slide()
-	
 
 func align_with_y(xform, new_y):
 	xform.basis.y = new_y
