@@ -1,0 +1,255 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkdhpapkjpgud"]
+
+[ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_3lckq"]
+[ext_resource type="AudioStream" uid="uid://dl20qoaght6dd" path="res://audio/credits-theme.ogg" id="2_8x4nd"]
+[ext_resource type="AudioStream" uid="uid://birncixnjjext" path="res://audio/pling.ogg" id="3_ealoe"]
+[ext_resource type="Texture2D" uid="uid://cwrscweq8jgyg" path="res://graphics/images/main_menu/background1.png" id="4_muh50"]
+[ext_resource type="Texture2D" uid="uid://bep1hwmljclcx" path="res://graphics/images/main_menu/background2.png" id="5_vr0ex"]
+[ext_resource type="Texture2D" uid="uid://bs0phmdhjhnkl" path="res://graphics/images/main_menu/background3.png" id="6_cgpif"]
+[ext_resource type="Texture2D" uid="uid://c3tmijbehie0l" path="res://graphics/images/main_menu/background4.png" id="7_etxgx"]
+[ext_resource type="Texture2D" uid="uid://djyp6x0ec3wxn" path="res://graphics/images/main_menu/background5.png" id="8_6nj5h"]
+[ext_resource type="Texture2D" uid="uid://sy1vak12qyqu" path="res://graphics/images/main_menu/button.png" id="9_w85pk"]
+[ext_resource type="Texture2D" uid="uid://jdkvwpc27cu8" path="res://graphics/images/main_menu/button_pressed.png" id="10_nh4er"]
+[ext_resource type="Texture2D" uid="uid://t7o3e8xkv37w" path="res://graphics/images/main_menu/button_hover.png" id="11_gxk8l"]
+[ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="12_m3ldu"]
+[ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="13_7t24i"]
+
+[sub_resource type="Animation" id="Animation_j75w3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../txt_bg4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-122, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../txt_bg3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13.9829, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_de406"]
+resource_name = "bg2"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../txt_bg4:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.83333, 4.16667, 6.03333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-200, 0), Vector2(0, 0), Vector2(-200, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1, 1.7, 5.93333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(0, 0), Vector2(-200, 0), Vector2(-100, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../txt_bg3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 4.06667, 7.76667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-200, 0), Vector2(0, 0), Vector2(-200, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxpw0"]
+_data = {
+"RESET": SubResource("Animation_j75w3"),
+"bg2": SubResource("Animation_de406")
+}
+
+[sub_resource type="GDScript" id="GDScript_a7s1q"]
+script/source = "extends Node
+
+var simultaneous_scene = preload(\"res://scenes/main_menu.tscn\").instantiate()
+
+func _on_button_pressed():
+	# Replace with the path to your target scene
+	print(\"Switching to scene:\", simultaneous_scene)
+	get_tree().root.add_child(simultaneous_scene)
+"
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sound" type="Node" parent="."]
+script = ExtResource("1_3lckq")
+
+[node name="credits_theme" type="AudioStreamPlayer" parent="sound" node_paths=PackedStringArray("music_player")]
+stream = ExtResource("2_8x4nd")
+autoplay = true
+parameters/looping = true
+script = ExtResource("1_3lckq")
+music_player = NodePath(".")
+
+[node name="pling" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("3_ealoe")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="txt_bg1" type="TextureRect" parent="UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_muh50")
+expand_mode = 3
+
+[node name="txt_bg2" type="TextureRect" parent="UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_right = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vr0ex")
+expand_mode = 3
+
+[node name="txt_bg3" type="TextureRect" parent="UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.9829
+offset_right = 222.017
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_cgpif")
+expand_mode = 3
+
+[node name="txt_bg4" type="TextureRect" parent="UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_etxgx")
+expand_mode = 3
+
+[node name="txt_bg5" type="TextureRect" parent="UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_6nj5h")
+expand_mode = 3
+
+[node name="bg_animation" type="AnimationPlayer" parent="UI/Background"]
+root_node = NodePath("../txt_bg2")
+libraries = {
+"": SubResource("AnimationLibrary_yxpw0")
+}
+autoplay = "bg2"
+
+[node name="Buttons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -50.5
+offset_right = 31.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_back" type="TextureButton" parent="UI/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("9_w85pk")
+texture_pressed = ExtResource("10_nh4er")
+texture_hover = ExtResource("11_gxk8l")
+texture_disabled = ExtResource("12_m3ldu")
+texture_focused = ExtResource("11_gxk8l")
+script = SubResource("GDScript_a7s1q")
+
+[node name="lbl_back" type="Label" parent="UI/Buttons/btn_back"]
+modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_7t24i")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI"]
+auto_translate_mode = 1
+
+[connection signal="pressed" from="UI/Buttons/btn_back" to="sound/credits_theme" method="fade_out_music"]
+[connection signal="pressed" from="UI/Buttons/btn_back" to="sound/pling" method="play"]
+[connection signal="pressed" from="UI/Buttons/btn_back" to="UI/Buttons/btn_back" method="_on_button_pressed"]
