@@ -6,20 +6,36 @@ extends CharacterBody3D
 ## speed in meter per second
 @export var speed: float = 2.0
 ## rotate in degrees per second
-@export var rotate: float = 20
+@export var rotation_speed: float = 90
 
-# direction to drive to in global space, should always be normalized
+# direction towards goal in global space
+var direction_to_target: Vector3
+# direction for driving force, in global space
 var move_direction: Vector3
 
 var velocity_y: float
 
-func _ready() -> void:
-	move_direction = Vector3(randf_range(-1,  1), 0, randf_range(-1, 1))
+@onready var nav: NavigationAgent3D = $NavigationAgent3D
+
 
 func _physics_process(delta: float) -> void:
 	# save current gravity-related velocity
 	velocity_y = velocity.y
+	
+	# work with navigation mesh
+	nav.target_position = target.global_position
+	direction_to_target = (nav.get_next_path_position() - global_position).normalized()
+	
+	# get direction to target
+	#direction_to_target = (target.global_position - global_position).normalized()
 
+	# get local driving force in global space
+	move_direction = direction_to_target - (direction_to_target * transform.basis.y)
+	
+	# do the rotation
+	rotate_y(to_local(move_direction.normalized()).x * delta * deg_to_rad(rotation_speed))
+	
+	
 	velocity = move_direction.normalized() * speed + Vector3(0, velocity_y, 0)
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,12 +46,9 @@ func _physics_process(delta: float) -> void:
 		var n = $RayCast3D.get_collision_normal()
 		var xform = align_with_y(global_transform, n)
 		global_transform = global_transform.interpolate_with(xform, 0.2)
-		
-	look_at(move_direction + global_position, transform.basis.y)
 
 	move_and_slide()
 	
-
 
 func align_with_y(xform, new_y):
 	xform.basis.y = new_y
