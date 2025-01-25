@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=7 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
+[ext_resource type="PackedScene" uid="uid://4lkrdkx3j8li" path="res://models/kenney_racing_kit/barrierRed.glb" id="3_h2076"]
+[ext_resource type="PackedScene" uid="uid://b7rkla2l1wyf7" path="res://models/kenney_racing_kit/flagCheckers.glb" id="4_dej4a"]
+[ext_resource type="PackedScene" uid="uid://bf3mbb3vpctah" path="res://models/kenney_racing_kit/pylon.glb" id="7_mvbej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otk60"]
 size = Vector3(0.106232, 0.963745, 3.9751)
@@ -30,3 +33,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00602722, -0.0181274, 1.48755)
 shape = SubResource("BoxShape3D_otk60")
+
+[node name="barrierRed" parent="." instance=ExtResource("3_h2076")]
+transform = Transform3D(2.5, 0, -4.33013, 0, 5, 0, 4.33013, 0, 2.5, 19.3971, 0, -2.25485)
+
+[node name="flagCheckers" parent="." instance=ExtResource("4_dej4a")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -30.7175, 0.082068, 54.9486)
+
+[node name="flagCheckers2" parent="." instance=ExtResource("4_dej4a")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -44.935, 0.082068, 54.9486)
+
+[node name="pylon" parent="." instance=ExtResource("7_mvbej")]
+transform = Transform3D(5.75646, 0, 5.55546, 0, 8, 0, -5.55546, 0, 5.75646, -26.9152, 0.0745964, 51.1336)
+
+[node name="pylon2" parent="." instance=ExtResource("7_mvbej")]
+transform = Transform3D(5.75646, 0, 5.55546, 0, 8, 0, -5.55546, 0, 5.75646, -41.9799, 0.0745969, 51.8354)
