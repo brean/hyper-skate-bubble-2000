@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=4 uid="uid://cs0qg2oj0ftox"]
+[gd_scene load_steps=31 format=4 uid="uid://cs0qg2oj0ftox"]
 
 [ext_resource type="Texture2D" uid="uid://dpxjun4ev3qfq" path="res://models/knifebot/knifebot_0.png" id="1_jkjwc"]
 [ext_resource type="Script" path="res://models/knifebot/knifebot_character.gd" id="1_t0dls"]
 [ext_resource type="Texture2D" uid="uid://diaehtn3d3i1i" path="res://models/knifebot/knifebot_1.png" id="2_5vxhf"]
+[ext_resource type="AudioStream" uid="uid://b8daf01nhvgcy" path="res://audio/knifebot.ogg" id="5_1pgu6"]
 [ext_resource type="Material" uid="uid://4ikkrmcerpo7" path="res://models/knifebot/metall_red.tres" id="5_63o2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iqg2"]
@@ -267,6 +268,18 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node/knife/AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3dpyb"]
 resource_name = "move"
@@ -281,6 +294,18 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-0.8, -0.1, 0, 0.1, 0, 0.8, -0.1, 0, 0.1, 0, -0.8, -0.1, 0, 0.1, 0),
 "times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node/knife/AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fqrlp"]
@@ -352,6 +377,9 @@ skeleton = NodePath("")
 transform = Transform3D(0, 0, 1, -1, 0, 0, 0, -1, 0, 0, 0.4375, -0.4375)
 mesh = SubResource("ArrayMesh_do4i4")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node/knife"]
+stream = ExtResource("5_1pgu6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
