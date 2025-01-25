@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpifkiq67qtrj"]
+[gd_scene load_steps=7 format=3 uid="uid://bpifkiq67qtrj"]
 
 [ext_resource type="Script" path="res://models/bubble.gd" id="1_0l421"]
 [ext_resource type="PackedScene" uid="uid://cpff7l1gha8kv" path="res://models/mc.glb" id="2_iyq1i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kswou"]
 radius = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8m3ob"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 10, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cjwj"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8g7dk"]
+material = SubResource("StandardMaterial3D_1cjwj")
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Bubble" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_0l421")
@@ -25,3 +43,12 @@ light_color = Color(0.382466, 0.845074, 1, 1)
 light_energy = 3.0
 omni_range = 30.0
 omni_attenuation = 0.0
+
+[node name="death_particles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 2000
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.98
+process_material = SubResource("ParticleProcessMaterial_8m3ob")
+draw_pass_1 = SubResource("BoxMesh_8g7dk")

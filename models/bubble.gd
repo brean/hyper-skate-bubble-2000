@@ -13,9 +13,16 @@ extends CharacterBody3D
 @export_group("Camera Handling (Joystick only)")
 @export var rotation_delta: int = 6  ## Controls how strongly the camera will respond to stick movement
 
+@export var dead_delay: float = 1.0  ## Time we wait after the player died before we jump back to main menu
+
+var dead_in_space: bool = false  ## the player died in space, e.g. by touching spikes
+
+signal player_dead(data)  ## signal that the player died
+
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+    player_dead.connect(_on_player_dead)
 
 
 func _process(delta: float) -> void:
@@ -23,8 +30,32 @@ func _process(delta: float) -> void:
         get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
+func dispatch_player_dead(data):
+    emit_signal("player_dead", data)
+
+
+func delayTimer(seconds: float):
+    return get_tree().create_timer(seconds).timeout
+
+
+func _on_player_dead(data):
+    if dead_in_space:
+        # we are already dead - return to not create a new timer
+        return
+    dead_in_space = true
+    $Mesh.hide()
+    $death_particles.emitting = true
+    await delayTimer(dead_delay)
+    get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
 func _physics_process(_delta):
     var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+
+    if dead_in_space:
+        # we died in place e.g. by touching spikes
+        # so we, do NOT apply anything and just return
+        return
 
     if !is_on_floor():
         velocity.y += gravity.y * jump_mass
@@ -67,6 +98,8 @@ func _physics_process(_delta):
     move_and_slide()
 
 func _input(event: InputEvent) -> void:
+    if dead_in_space:
+        return
     if event is InputEventMouseMotion:
         var x_velocity = snapped(event.screen_velocity.x, 1)
         if abs(x_velocity) > camera_deadzone:
