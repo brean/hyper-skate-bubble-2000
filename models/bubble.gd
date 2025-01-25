@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export_group("Camera Handling (Joystick only)")
 @export var rotation_delta: int = 6  ## Controls how strongly the camera will respond to stick movement
 
+var dead = false
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -30,6 +31,10 @@ func _physics_process(_delta):
         velocity.y += gravity.y * jump_mass
         move_and_slide()
         return
+        
+    if dead:
+        velocity = to_global(Vector3.ZERO)
+        return
 
     if !Input.is_anything_pressed():
         velocity = gravity
@@ -39,6 +44,7 @@ func _physics_process(_delta):
     if Input.is_action_pressed("jump") and is_on_floor():
         print("jump")
         velocity.y += jump_force
+        die()
         move_and_slide()
         return
 
@@ -67,7 +73,14 @@ func _physics_process(_delta):
     move_and_slide()
 
 func _input(event: InputEvent) -> void:
+    if dead:
+        return
     if event is InputEventMouseMotion:
         var x_velocity = snapped(event.screen_velocity.x, 1)
         if abs(x_velocity) > camera_deadzone:
             rotation_degrees.y += (-x_velocity / rotation_divisor) * sensitivity
+
+func die():
+    $Mesh.hide()
+    $death_particles.emitting = true
+    dead = true
