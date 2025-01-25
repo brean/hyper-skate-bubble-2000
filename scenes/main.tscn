@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
-[ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
+[ext_resource type="Script" uid="uid://d3poj11xejqno" path="res://scripts/audio_fader.gd" id="5_n1elo"]
 [ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="6_7qsua"]
 [ext_resource type="PackedScene" uid="uid://cs0qg2oj0ftox" path="res://models/knifebot/knifebot_character.tscn" id="6_k8pwy"]
 
