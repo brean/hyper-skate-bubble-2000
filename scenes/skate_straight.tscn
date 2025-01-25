@@ -15,7 +15,7 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 transform = Transform3D(-10, 0, 8.74228e-08, 0, 1, 0, -8.74228e-07, 0, -1, 0, 0, 4.5)
 
 [node name="floor-concrete" parent="." instance=ExtResource("2_ae0jl")]
-transform = Transform3D(-3.49691e-07, 0, 10, 0, 1, 0, -8, 0, -4.37114e-07, 0, 0.01, 0)
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 1, 0, -10, 0, -4.37114e-07, 0, 0.01, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
