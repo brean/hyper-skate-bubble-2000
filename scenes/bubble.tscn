@@ -18,3 +18,10 @@ fov = 90.0
 shape = SubResource("SphereShape3D_kswou")
 
 [node name="Mesh" parent="." instance=ExtResource("2_iyq1i")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07803, 0)
+light_color = Color(0.382466, 0.845074, 1, 1)
+light_energy = 3.0
+omni_range = 30.0
+omni_attenuation = 0.0
