@@ -13,9 +13,14 @@ extends CharacterBody3D
 @export_group("Camera Handling (Joystick only)")
 @export var rotation_delta: int = 6  ## Controls how strongly the camera will respond to stick movement
 
+var dead_in_space: bool = false  ## the player died in space, e.g. by touching spikes
+
+signal player_dead(data)  ## signal that the player died
+
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+    player_dead.connect(_on_player_dead)
 
 
 func _process(delta: float) -> void:
@@ -23,8 +28,21 @@ func _process(delta: float) -> void:
         get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
+func dispatch_player_dead(data):
+    emit_signal("player_dead", data)
+
+
+func _on_player_dead(data):
+    dead_in_space = true
+
+
 func _physics_process(_delta):
     var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+
+    if dead_in_space:
+        # we died in place e.g. by touching spikes
+        # so we, do NOT apply anything and just return
+        return
 
     if !is_on_floor():
         velocity.y += gravity.y * jump_mass
