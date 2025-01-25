@@ -61,11 +61,6 @@ func _physics_process(_delta):
 	$Mesh.rotation += local_movement
 	move_and_slide()
 
-	for index in get_slide_collision_count():
-		var collision := get_slide_collision(index)
-		var body := collision.get_collider()
-
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var x_velocity = snapped(event.screen_velocity.x, 1)
