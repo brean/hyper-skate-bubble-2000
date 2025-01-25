@@ -42,6 +42,11 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/path": ""
 }
+},
+"nodes": {
+"PATH:steps": {
+"generate/physics": true
+}
 }
 }
 gltf/naming_version=1

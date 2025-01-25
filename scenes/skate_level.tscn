@@ -1,13 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=21 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
 [ext_resource type="PackedScene" uid="uid://4lkrdkx3j8li" path="res://models/kenney_racing_kit/barrierRed.glb" id="3_h2076"]
 [ext_resource type="PackedScene" uid="uid://b7rkla2l1wyf7" path="res://models/kenney_racing_kit/flagCheckers.glb" id="4_dej4a"]
+[ext_resource type="PackedScene" uid="uid://hk1a6afcl7pr" path="res://models/obstacles/trashcan.gltf" id="6_cpsgc"]
+[ext_resource type="PackedScene" uid="uid://cwki1wfeo7b6n" path="res://models/kenney_skate_park/structure-wood.glb" id="7_3f3tu"]
 [ext_resource type="PackedScene" uid="uid://bf3mbb3vpctah" path="res://models/kenney_racing_kit/pylon.glb" id="7_mvbej"]
+[ext_resource type="PackedScene" uid="uid://pn4yv7jwvstr" path="res://models/kenney_skate_park/skateboard.glb" id="8_opeie"]
+[ext_resource type="PackedScene" uid="uid://cwak132p3x71p" path="res://models/kenney_skate_park/steps.glb" id="9_dqb5b"]
+[ext_resource type="PackedScene" uid="uid://ccu0nwhl6lul" path="res://models/kenney_racing_kit/barrierWall.glb" id="10_vccct"]
+[ext_resource type="PackedScene" uid="uid://bidp1chee7hsf" path="res://models/kenney_racing_kit/billboard.glb" id="11_l0n72"]
+[ext_resource type="Texture2D" uid="uid://dtysp6wp5dd82" path="res://graphics/graffiti/skate.png" id="12_v82ko"]
+[ext_resource type="Texture2D" uid="uid://w6lwjvtnajjm" path="res://graphics/graffiti/h4ck3rm4n.png" id="13_0qlyh"]
+[ext_resource type="PackedScene" uid="uid://dvaeutmwpdasy" path="res://models/kenney_racing_kit/fenceCurved.glb" id="14_2feko"]
+[ext_resource type="PackedScene" uid="uid://b4f44c6cjj4p0" path="res://models/kenney_racing_kit/fenceStraight.glb" id="15_fslse"]
+[ext_resource type="PackedScene" uid="uid://ccgrvupfch2jd" path="res://models/kenney_racing_kit/lightColored.glb" id="16_cxjab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otk60"]
-size = Vector3(0.106232, 0.963745, 3.9751)
+size = Vector3(2.01286, 0.500381, 0.0455439)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3ojnr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou5oy"]
+albedo_texture = ExtResource("12_v82ko")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42ecv"]
+albedo_texture = ExtResource("13_0qlyh")
 
 [node name="SkateLevel" type="Node3D"]
 
@@ -35,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00602722, -0.0181274, 1.48
 shape = SubResource("BoxShape3D_otk60")
 
 [node name="barrierRed" parent="." instance=ExtResource("3_h2076")]
-transform = Transform3D(2.5, 0, -4.33013, 0, 5, 0, 4.33013, 0, 2.5, 19.3971, 0, -2.25485)
+transform = Transform3D(2.5, 0, -4.33013, 0, 5, 0, 4.33013, 0, 2.5, 19.3971, 0, -9.25485)
 
 [node name="flagCheckers" parent="." instance=ExtResource("4_dej4a")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -30.7175, 0.082068, 54.9486)
@@ -48,3 +67,66 @@ transform = Transform3D(5.75646, 0, 5.55546, 0, 8, 0, -5.55546, 0, 5.75646, -26.
 
 [node name="pylon2" parent="." instance=ExtResource("7_mvbej")]
 transform = Transform3D(5.75646, 0, 5.55546, 0, 8, 0, -5.55546, 0, 5.75646, -41.9799, 0.0745969, 51.8354)
+
+[node name="blockbench_export" parent="." instance=ExtResource("6_cpsgc")]
+transform = Transform3D(1.27845, 0.675089, -0.399781, -0.725261, 1.30841, -0.109857, 0.299275, 0.286928, 1.44156, 28.2092, 0.0199966, -23.0676)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(0.78079, 0, -0.624793, 0, 1, 0, 0.624793, 0, 0.78079, 0, 0, -40.226)
+
+[node name="structure-wood2" parent="Node3D2" instance=ExtResource("7_3f3tu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5, 0.02, 0)
+
+[node name="structure-wood3" parent="Node3D2" instance=ExtResource("7_3f3tu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.02, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13896, 0.411835, 0.0575867)
+shape = SubResource("BoxShape3D_otk60")
+
+[node name="skateboard2" parent="." instance=ExtResource("8_opeie")]
+transform = Transform3D(2.46162, 0, -1.71476, 0, 3, 0, 1.71476, 0, 2.46162, -15.4026, 0.0200043, -60.1696)
+
+[node name="steps2" parent="." instance=ExtResource("9_dqb5b")]
+transform = Transform3D(4.89645, 0, 1.01231, 0, 5, 0, -1.01231, 0, 4.89645, -24.003, 0.0200005, -74.2893)
+
+[node name="barrierRed2" parent="." instance=ExtResource("3_h2076")]
+transform = Transform3D(9.57667, 0, -2.87879, 0, 10, 0, 2.87879, 0, 9.57667, -14.4636, 0.0200043, -87.4499)
+
+[node name="barrierWall" parent="." instance=ExtResource("10_vccct")]
+transform = Transform3D(2.93123, 0, 9.56075, 0, 10, 0, -9.56075, 0, 2.93123, -31.1208, 0.0200005, -99.678)
+
+[node name="billboard" parent="." instance=ExtResource("11_l0n72")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -56.4694, 0.0200005, -103.489)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="billboard"]
+transform = Transform3D(0.937284, 0, 0, 0, 0.455557, 0, 0, 0, 1, 0.0753965, 0.744624, -0.607834)
+mesh = SubResource("QuadMesh_3ojnr")
+material = SubResource("StandardMaterial3D_ou5oy")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="billboard"]
+transform = Transform3D(0.429478, -0.005148, 0, 0.0107079, 0.163889, 0.454162, -0.00545852, -0.0835454, 0.890919, 3.88847, 0.0718258, -0.573934)
+mesh = SubResource("QuadMesh_3ojnr")
+material = SubResource("StandardMaterial3D_42ecv")
+
+[node name="fenceCurved" parent="." instance=ExtResource("14_2feko")]
+transform = Transform3D(-6.91009, 0, 7.22847, 0, 10, 0, -7.22847, 0, -6.91009, -67.1181, 0.0200005, -78.7645)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -82.5132, 0.0200005, -72.5405)
+
+[node name="fenceStraight" parent="Node3D3" instance=ExtResource("15_fslse")]
+
+[node name="fenceStraight2" parent="Node3D3" instance=ExtResource("15_fslse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386189, 0.267891, -0.655831)
+shape = SubResource("BoxShape3D_otk60")
+
+[node name="lightColored" parent="." instance=ExtResource("16_cxjab")]
+transform = Transform3D(4.69472, 8.82948, 3.85949e-07, 0, -4.37114e-07, 10, 8.82947, -4.69472, -2.05213e-07, -96.7037, 6.72642, -100.014)
