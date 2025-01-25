@@ -64,8 +64,6 @@ func _physics_process(_delta):
 	for index in get_slide_collision_count():
 		var collision := get_slide_collision(index)
 		var body := collision.get_collider()
-		if body == %WorldBoundary:
-			print("Touched boundary")
 
 
 func _input(event: InputEvent) -> void:
