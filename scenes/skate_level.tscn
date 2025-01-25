@@ -177,5 +177,5 @@ transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 15, -42.4761, 0.0199966, 9.9574
 [node name="pallet2" parent="." instance=ExtResource("25_u14ck")]
 transform = Transform3D(8.48104, 0, 5.2983, 0, 10, 0, -5.2983, 0, 8.48104, -34.5352, -0.0723476, 31.6371)
 
-[node name="blockbench_export2" parent="." instance=ExtResource("26_iyh40")]
+[node name="goal" parent="." instance=ExtResource("26_iyh40")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -39.865, 0.0200043, 51.9981)
