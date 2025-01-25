@@ -1,6 +1,8 @@
 extends CharacterBody3D
 # script for knifebot
 
+@export var active: bool = true
+
 ## target to follow
 @export var target: Node3D
 ## speed in meter per second
@@ -30,9 +32,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+    # stop if not active
+    if not active: return
+
     # save current gravity-related velocity
     velocity_y = velocity.y
-    
+
 
     # work with navigation mesh	
     nav.target_position = target.global_position

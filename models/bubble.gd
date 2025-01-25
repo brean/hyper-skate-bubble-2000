@@ -43,6 +43,8 @@ func _on_player_dead(data):
         # we are already dead - return to not create a new timer
         return
     dead_in_space = true
+    $Mesh.hide()
+    $death_particles.emitting = true
     await delayTimer(dead_delay)
     get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
@@ -96,6 +98,8 @@ func _physics_process(_delta):
     move_and_slide()
 
 func _input(event: InputEvent) -> void:
+    if dead_in_space:
+        return
     if event is InputEventMouseMotion:
         var x_velocity = snapped(event.screen_velocity.x, 1)
         if abs(x_velocity) > camera_deadzone:
