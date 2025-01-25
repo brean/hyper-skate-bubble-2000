@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cs0qg2oj0ftox"]
+[gd_scene load_steps=29 format=4 uid="uid://cs0qg2oj0ftox"]
 
 [ext_resource type="Texture2D" uid="uid://dpxjun4ev3qfq" path="res://models/knifebot/knifebot_0.png" id="1_jkjwc"]
 [ext_resource type="Script" path="res://models/knifebot/knifebot_character.gd" id="1_t0dls"]
@@ -286,6 +286,27 @@ _data = {
 "move": SubResource("Animation_3dpyb")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yaqak"]
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -50, 0)
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxhmh"]
+albedo_color = Color(0.654902, 0.517647, 0, 1)
+emission_enabled = true
+emission = Color(0.65336, 0.51693, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_84b3y"]
+material = SubResource("StandardMaterial3D_jxhmh")
+size = Vector3(0.25, 0.25, 0.25)
+
 [node name="knifebot_character" type="CharacterBody3D"]
 script = ExtResource("1_t0dls")
 
@@ -348,3 +369,11 @@ libraries = {
 "": SubResource("AnimationLibrary_fqrlp")
 }
 autoplay = "move"
+
+[node name="particles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 500
+lifetime = 6.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_yaqak")
+draw_pass_1 = SubResource("BoxMesh_84b3y")
