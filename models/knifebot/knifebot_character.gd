@@ -6,7 +6,7 @@ extends CharacterBody3D
 ## target to follow
 @export var target: Node3D
 ## speed in meter per second
-@export var speed: float = 4.0
+@export var speed: float = 15.0
 ## maximum is 100 with complete smooth
 @export_range(0, 99) var smoothness: int = 50
 
