@@ -15,6 +15,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -10)
 [node name="SkateCorner15" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, -20)
 
+[node name="SkateCorner24" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 10)
+
+[node name="SkateCorner18" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 0, -20)
+
+[node name="SkateCorner19" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -90, 0, -20)
+
 [node name="SkateCorner16" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0, -50)
 
@@ -23,6 +32,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0
 
 [node name="SkateStraight19" parent="." instance=ExtResource("1_yroty")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0, -40)
+
+[node name="SkateStraight21" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -90, 0, 0)
+
+[node name="SkateStraight22" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -90, 0, -10)
 
 [node name="SkateCorner17" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -70, 0, -20)
@@ -41,11 +56,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 [node name="SkateStraight13" parent="." instance=ExtResource("1_yroty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -10)
 
-[node name="SkateCorner13" parent="." instance=ExtResource("2_ocrj8")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -80, 0, -10)
+[node name="SkateStraight23" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 10)
 
 [node name="SkateStraight16" parent="." instance=ExtResource("1_yroty")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 10)
+
+[node name="SkateStraight24" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 10)
+
+[node name="SkateStraight25" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 10)
+
+[node name="SkateCorner13" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -80, 0, -10)
 
 [node name="SkateStraight7" parent="." instance=ExtResource("1_yroty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
@@ -77,11 +101,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -60)
 [node name="SkateCorner11" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -80, 0, -50)
 
+[node name="SkateCorner20" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -90, 0, 10)
+
 [node name="SkateEnd" parent="." instance=ExtResource("3_c8jfe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, 0)
 
 [node name="SkateCorner10" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -80, 0, -60)
+
+[node name="SkateCorner21" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30, 0, 10)
+
+[node name="SkateCorner22" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -30, 0, 20)
+
+[node name="SkateCorner23" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -40, 0, 20)
 
 [node name="SkateCorner8" parent="." instance=ExtResource("2_ocrj8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, -90)
@@ -94,6 +130,15 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0
 
 [node name="SkateStraight5" parent="." instance=ExtResource("1_yroty")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -40)
+
+[node name="SkateCorner25" parent="." instance=ExtResource("2_ocrj8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 10)
+
+[node name="SkateStraight30" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 30)
+
+[node name="SkateStraight31" parent="." instance=ExtResource("1_yroty")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 20)
 
 [node name="SkateStraight8" parent="." instance=ExtResource("1_yroty")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, -50)
@@ -120,4 +165,4 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -10, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
 
 [node name="SkateEnd2" parent="." instance=ExtResource("3_c8jfe")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 0, -25)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 0, 35)
