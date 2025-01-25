@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dkdhpapkjpgud"]
+[gd_scene load_steps=26 format=3 uid="uid://dkdhpapkjpgud"]
 
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_3lckq"]
 [ext_resource type="AudioStream" uid="uid://dl20qoaght6dd" path="res://audio/credits-theme.ogg" id="2_8x4nd"]
@@ -21,6 +21,7 @@
 [ext_resource type="FontFile" uid="uid://bxvfg630tf4pg" path="res://fonts/Barlow-Bold.ttf" id="13_i5lcd"]
 [ext_resource type="Script" path="res://scripts/opacity_fader.gd" id="15_3k4k3"]
 [ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="16_0627i"]
+[ext_resource type="Script" path="res://scripts/exit_to_main_menu.gd" id="22_pwdk1"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001
@@ -334,6 +335,9 @@ size = Vector2i(250, 100)
 ok_button_text = "Yes"
 dialog_text = "Do you wish to End the Game?"
 cancel_button_text = "No"
+
+[node name="ExitToMainMenu" type="Node" parent="."]
+script = ExtResource("22_pwdk1")
 
 [connection signal="pressed" from="UI/Buttons/btn_back" to="sound/credits_theme" method="fade_out_music"]
 [connection signal="pressed" from="UI/Buttons/btn_back" to="sound/pling" method="play"]

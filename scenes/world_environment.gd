@@ -7,7 +7,6 @@ extends WorldEnvironment
 @export var max_saturation: float = 1.5
 
 func _on_knifebot_distance_changed(new_distance: float):
-    print(new_distance)
     if new_distance < knifebot_closest:
         environment.adjustment_saturation = min_saturation
         return

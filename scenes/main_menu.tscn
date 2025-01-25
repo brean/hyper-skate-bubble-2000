@@ -249,6 +249,7 @@ script = ExtResource("15_br3fc")
 scene = "res://scenes/main.tscn"
 
 [node name="btn_continue" type="TextureButton" parent="UI/Buttons"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("7_shkxs")
