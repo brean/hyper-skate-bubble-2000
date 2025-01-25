@@ -12,11 +12,12 @@ gradient = SubResource("Gradient_nn72l")
 [sub_resource type="Environment" id="Environment_fim2q"]
 background_mode = 2
 sky = ExtResource("1_c1mhj")
-ambient_light_color = Color(2.76752e-07, 0.167904, 0.224959, 1)
-ambient_light_sky_contribution = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.355706, 0.495654, 0.538322, 1)
+ambient_light_energy = 0.5
 tonemap_mode = 2
 glow_enabled = true
-glow_intensity = 1.0
+glow_intensity = 0.5
 glow_bloom = 0.5
 adjustment_enabled = true
 adjustment_contrast = 1.2
