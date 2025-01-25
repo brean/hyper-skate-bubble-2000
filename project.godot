@@ -24,10 +24,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=800
 
-[physics]
-
-3d/physics_engine="JoltPhysics3D"
-
 [filesystem]
 
 import/blender/enabled=false
@@ -68,6 +64,10 @@ look_right={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
 ]
 }
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
 
 [rendering]
 

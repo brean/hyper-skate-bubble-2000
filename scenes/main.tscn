@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=8 format=3 uid="uid://duw12wjdvnqia"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_f6j3o"]
+[ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 
 [sub_resource type="Environment" id="Environment_ykkkh"]
 
@@ -15,7 +16,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="SkatePark" parent="." instance=ExtResource("1_f6j3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ykkkh")
@@ -26,6 +27,7 @@ compositor = SubResource("Compositor_3r1a1")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.7, 3.4, 0)
+visible = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
 mass = 10.0
@@ -33,9 +35,10 @@ mass = 10.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D"]
 shape = SubResource("SphereShape3D_gi1ex")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D/RigidBody3D"]
-transform = Transform3D(-8.74228e-08, 1.73205, -1, 0, 1, 1.73205, 2, 7.57104e-08, -4.37114e-08, -2.95682, 4.8138, 0.198236)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/RigidBody3D"]
 mesh = SubResource("SphereMesh_g66tp")
 skeleton = NodePath("../..")
+
+[node name="Bubble" parent="." instance=ExtResource("2_t3376")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.879392, 0)
+movement_speed = 100
