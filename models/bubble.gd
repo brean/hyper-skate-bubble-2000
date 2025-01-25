@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export_group("General Controls")
 @export_range(0.1, 1, 0.1) var sensitivity: float = 0.5  ## Overall sensitivity that will affect most movements
 @export var movement_speed: int = 10  ## Controls how much the character moves per frame where the move input is active
+@export var jump_force: int = 10  ## Controls how much upwards force will be applied for a jump
+@export var jump_mass: float = 0.3  ## Controls how quickly the character will fall back down after jumping
 
 @export_group("Camera Handling (Mouse only)")
 @export var camera_deadzone: int = 100  ## Minimum distance the mouse has to be moved before the camera will react
@@ -17,8 +19,22 @@ func _ready():
 
 
 func _physics_process(_delta):
+    var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+
+    if !is_on_floor():
+        velocity.y += gravity.y * jump_mass
+        move_and_slide()
+        return
+
     if !Input.is_anything_pressed():
-        velocity = Vector3.ZERO
+        velocity = gravity
+        move_and_slide()
+        return
+
+    if Input.is_action_pressed("jump") and is_on_floor():
+        print("jump")
+        velocity.y += jump_force
+        move_and_slide()
         return
 
     if Input.is_action_pressed("look_left"):
@@ -41,7 +57,7 @@ func _physics_process(_delta):
         movement_delta = movement_delta * Input.get_action_strength("move_backwards")
         local_movement += Vector3.FORWARD * movement_delta
     velocity = to_global(local_movement)
-    velocity.y = 0
+    velocity.y = gravity.y
     move_and_slide()
 
 
