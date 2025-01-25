@@ -62,5 +62,6 @@ skeleton = NodePath("../..")
 [node name="Bubble" parent="." instance=ExtResource("2_t3376")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.01, 0)
 movement_speed = 50
+jump_force = 6
 
 [node name="SkateLevel" parent="." instance=ExtResource("2_g6jql")]
