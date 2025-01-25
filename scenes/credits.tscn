@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bs0phmdhjhnkl" path="res://graphics/images/main_menu/background3.png" id="6_cgpif"]
 [ext_resource type="Texture2D" uid="uid://c3tmijbehie0l" path="res://graphics/images/main_menu/background4.png" id="7_etxgx"]
 [ext_resource type="Texture2D" uid="uid://djyp6x0ec3wxn" path="res://graphics/images/main_menu/background5.png" id="8_6nj5h"]
-[ext_resource type="Theme" uid="uid://dtr7ipfcjdpwc" path="res://themes/credit_theme.tres" id="9_a1r0h"]
+[ext_resource type="Theme" uid="uid://ckwh5lo237axw" path="res://themes/credit_theme.tres" id="9_a1r0h"]
 [ext_resource type="Texture2D" uid="uid://sy1vak12qyqu" path="res://graphics/images/main_menu/button.png" id="9_w85pk"]
 [ext_resource type="FontFile" uid="uid://cxrq4wfev4x5r" path="res://fonts/Barlow-Regular.ttf" id="10_87e5f"]
 [ext_resource type="Texture2D" uid="uid://jdkvwpc27cu8" path="res://graphics/images/main_menu/button_pressed.png" id="10_nh4er"]
@@ -236,7 +236,7 @@ theme_override_fonts/bold_font = ExtResource("13_i5lcd")
 bbcode_enabled = true
 text = "[center]
 [font_size=50]
-[b]Team H4CK3RM4N[/b]
+[b]T34M H4CK3RM4N[/b]
 [/font_size]"
 fit_content = true
 
