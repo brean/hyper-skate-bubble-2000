@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://blohojrtu1lru"]
+
+[ext_resource type="PackedScene" uid="uid://b8cyxt7wip24t" path="res://models/kenney_skate_park/bowl-corner-inner.glb" id="1_1qubf"]
+[ext_resource type="PackedScene" uid="uid://c3o1402g8nb1h" path="res://models/kenney_skate_park/bowl-side.glb" id="1_n34a7"]
+[ext_resource type="PackedScene" uid="uid://bl1t0q2rhinso" path="res://models/kenney_skate_park/floor-concrete.glb" id="2_espth"]
+[ext_resource type="PackedScene" uid="uid://cuv28thwbvyc8" path="res://models/kenney_skate_park/bowl-corner-outer.glb" id="4_i7kig"]
+
+[node name="SkateCorner" type="Node3D"]
+
+[node name="bowl-corner-inner4" parent="." instance=ExtResource("1_1qubf")]
+transform = Transform3D(-1, 0, 1.59746e-07, 0, 1, 0, -1.59746e-07, 0, -1, 4.5, 0, 4.5)
+
+[node name="bowl-top" parent="." instance=ExtResource("1_n34a7")]
+transform = Transform3D(-3.93403e-07, 0, -1, 0, 1, 0, 9, 0, -4.37114e-08, 4.5, 0, -0.5)
+
+[node name="bowl-right" parent="." instance=ExtResource("1_n34a7")]
+transform = Transform3D(-9, 0, 1.50996e-07, 0, 1, 0, -1.35896e-06, 0, -1, -0.5, 0, 4.5)
+
+[node name="floor-concrete" parent="." instance=ExtResource("2_espth")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 1, 0, -10, 0, -4.37114e-07, 0, 0.01, 0)
+
+[node name="bowl-corner-outer2" parent="." instance=ExtResource("4_i7kig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.5)
