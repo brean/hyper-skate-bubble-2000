@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkdhpapkjpgud"]
+[gd_scene load_steps=25 format=3 uid="uid://dkdhpapkjpgud"]
 
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_3lckq"]
 [ext_resource type="AudioStream" uid="uid://dl20qoaght6dd" path="res://audio/credits-theme.ogg" id="2_8x4nd"]
@@ -8,11 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://bs0phmdhjhnkl" path="res://graphics/images/main_menu/background3.png" id="6_cgpif"]
 [ext_resource type="Texture2D" uid="uid://c3tmijbehie0l" path="res://graphics/images/main_menu/background4.png" id="7_etxgx"]
 [ext_resource type="Texture2D" uid="uid://djyp6x0ec3wxn" path="res://graphics/images/main_menu/background5.png" id="8_6nj5h"]
+[ext_resource type="Theme" uid="uid://ckwh5lo237axw" path="res://themes/credit_theme.tres" id="9_a1r0h"]
 [ext_resource type="Texture2D" uid="uid://sy1vak12qyqu" path="res://graphics/images/main_menu/button.png" id="9_w85pk"]
+[ext_resource type="FontFile" uid="uid://cxrq4wfev4x5r" path="res://fonts/Barlow-Regular.ttf" id="10_87e5f"]
 [ext_resource type="Texture2D" uid="uid://jdkvwpc27cu8" path="res://graphics/images/main_menu/button_pressed.png" id="10_nh4er"]
+[ext_resource type="FontFile" uid="uid://sxcoaww6rn1o" path="res://fonts/Barlow-Italic.ttf" id="11_aw5dd"]
 [ext_resource type="Texture2D" uid="uid://t7o3e8xkv37w" path="res://graphics/images/main_menu/button_hover.png" id="11_gxk8l"]
 [ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="12_m3ldu"]
+[ext_resource type="FontFile" uid="uid://dq6qp74aejryk" path="res://fonts/Barlow-BoldItalic.ttf" id="12_rk71k"]
 [ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="13_7t24i"]
+[ext_resource type="Script" path="res://scripts/btn_back.gd" id="13_ar5ol"]
+[ext_resource type="FontFile" uid="uid://bxvfg630tf4pg" path="res://fonts/Barlow-Bold.ttf" id="13_i5lcd"]
+[ext_resource type="Script" path="res://scripts/opacity_fader.gd" id="15_3k4k3"]
+[ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="16_0627i"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001
@@ -99,17 +107,6 @@ _data = {
 "RESET": SubResource("Animation_j75w3"),
 "bg2": SubResource("Animation_de406")
 }
-
-[sub_resource type="GDScript" id="GDScript_a7s1q"]
-script/source = "extends Node
-
-var simultaneous_scene = preload(\"res://scenes/main_menu.tscn\").instantiate()
-
-func _on_button_pressed():
-	# Replace with the path to your target scene
-	print(\"Switching to scene:\", simultaneous_scene)
-	get_tree().root.add_child(simultaneous_scene)
-"
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -198,6 +195,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -12.0
+offset_right = 71.2223
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_6nj5h")
@@ -217,21 +218,69 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -50.5
-offset_right = 31.5
-offset_bottom = 50.5
+offset_left = -280.0
+offset_top = -134.0
+offset_right = 280.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="btn_back" type="TextureButton" parent="UI/Buttons"]
+[node name="lbl_TeamHackerman" type="RichTextLabel" parent="UI/Buttons"]
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("9_a1r0h")
+theme_override_fonts/normal_font = ExtResource("10_87e5f")
+theme_override_fonts/italics_font = ExtResource("11_aw5dd")
+theme_override_fonts/bold_italics_font = ExtResource("12_rk71k")
+theme_override_fonts/bold_font = ExtResource("13_i5lcd")
+bbcode_enabled = true
+text = "[center]
+[font_size=50]
+[b]Team H4CK3RM4N[/b]
+[/font_size]"
+fit_content = true
+
+[node name="lbl_TeamMembers" type="RichTextLabel" parent="UI/Buttons"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme = ExtResource("9_a1r0h")
+theme_override_fonts/normal_font = ExtResource("10_87e5f")
+theme_override_fonts/italics_font = ExtResource("11_aw5dd")
+theme_override_fonts/bold_italics_font = ExtResource("12_rk71k")
+theme_override_fonts/bold_font = ExtResource("13_i5lcd")
+bbcode_enabled = true
+text = "[center]
+[b]Chief Player Engineer[/b]
+Lena
+
+[b]Chief Asset Manager[/b]
+Christian
+
+[b]Chief Level Designer[/b]
+Andreas
+
+[b]Chief Roomba Creator[/b]
+Johannes 42
+
+[b]Chief Audio Engineer[/b]
+Johannes
+
+
+
+
+[/center]"
+fit_content = true
+
+[node name="btn_back" type="TextureButton" parent="UI/Buttons" node_paths=PackedStringArray("conf_dialog")]
+layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("9_w85pk")
 texture_pressed = ExtResource("10_nh4er")
 texture_hover = ExtResource("11_gxk8l")
 texture_disabled = ExtResource("12_m3ldu")
 texture_focused = ExtResource("11_gxk8l")
-script = SubResource("GDScript_a7s1q")
+script = ExtResource("13_ar5ol")
+conf_dialog = NodePath("../../../ConfirmationDialog")
 
 [node name="lbl_back" type="Label" parent="UI/Buttons/btn_back"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -247,9 +296,47 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI"]
+[node name="SplashScreen" type="Control" parent="." node_paths=PackedStringArray("renderers")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_3k4k3")
+renderers = [NodePath("TextureRect"), NodePath("ColorRect")]
+
+[node name="ColorRect" type="ColorRect" parent="SplashScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="SplashScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_0627i")
+stretch_mode = 3
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 auto_translate_mode = 1
+title = "You Sure?"
+initial_position = 2
+size = Vector2i(250, 100)
+ok_button_text = "Yes"
+dialog_text = "Do you wish to End the Game?"
+cancel_button_text = "No"
 
 [connection signal="pressed" from="UI/Buttons/btn_back" to="sound/credits_theme" method="fade_out_music"]
 [connection signal="pressed" from="UI/Buttons/btn_back" to="sound/pling" method="play"]
 [connection signal="pressed" from="UI/Buttons/btn_back" to="UI/Buttons/btn_back" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Buttons/btn_back" to="SplashScreen" method="fade_in_opacity"]
+[connection signal="confirmed" from="ConfirmationDialog" to="UI/Buttons/btn_back" method="quit"]

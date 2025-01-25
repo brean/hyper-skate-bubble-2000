@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bj8dsmmy4uqjh"]
+[gd_scene load_steps=24 format=3 uid="uid://bj8dsmmy4uqjh"]
 
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_1hvkk"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_80k55"]
@@ -16,7 +16,10 @@
 [ext_resource type="Script" path="res://scripts/opacity_fader.gd" id="11_8c70d"]
 [ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="11_k7np0"]
 [ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="13_hq61g"]
+[ext_resource type="Script" path="res://scripts/btn_start.gd" id="14_277qq"]
 [ext_resource type="Script" path="res://scripts/switch_scene.gd" id="15_br3fc"]
+[ext_resource type="Script" path="res://scripts/btn_continue.gd" id="15_rstw1"]
+[ext_resource type="Script" path="res://scripts/btn_end.gd" id="16_w7vf0"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001
@@ -221,11 +224,13 @@ grow_vertical = 2
 
 [node name="btn_start" type="TextureButton" parent="UI/Buttons"]
 layout_mode = 2
+focus_next = NodePath("../btn_credits")
 texture_normal = ExtResource("7_shkxs")
 texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
 texture_disabled = ExtResource("13_hq61g")
 texture_focused = ExtResource("9_agarx")
+script = ExtResource("14_277qq")
 
 [node name="lbl_start" type="Label" parent="UI/Buttons/btn_start"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -243,12 +248,13 @@ clip_text = true
 
 [node name="btn_continue" type="TextureButton" parent="UI/Buttons"]
 layout_mode = 2
-disabled = true
+focus_mode = 0
 texture_normal = ExtResource("7_shkxs")
 texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
 texture_disabled = ExtResource("13_hq61g")
 texture_focused = ExtResource("13_hq61g")
+script = ExtResource("15_rstw1")
 
 [node name="lbl_continue" type="Label" parent="UI/Buttons/btn_continue"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -266,6 +272,7 @@ clip_text = true
 
 [node name="btn_credits" type="TextureButton" parent="UI/Buttons"]
 layout_mode = 2
+focus_previous = NodePath("../btn_start")
 texture_normal = ExtResource("7_shkxs")
 texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
@@ -288,13 +295,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="btn_end" type="TextureButton" parent="UI/Buttons"]
+[node name="btn_end" type="TextureButton" parent="UI/Buttons" node_paths=PackedStringArray("conf_dialog")]
 layout_mode = 2
 texture_normal = ExtResource("7_shkxs")
 texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
 texture_disabled = ExtResource("13_hq61g")
 texture_focused = ExtResource("9_agarx")
+script = ExtResource("16_w7vf0")
+conf_dialog = NodePath("../../../ConfirmationDialog")
 
 [node name="lbl_end" type="Label" parent="UI/Buttons/btn_end"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -309,8 +318,6 @@ text = "End"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI"]
 
 [node name="SplashScreen" type="Control" parent="." node_paths=PackedStringArray("renderers")]
 visible = false
@@ -342,9 +349,21 @@ grow_vertical = 2
 texture = ExtResource("11_k7np0")
 stretch_mode = 3
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "You Sure?"
+initial_position = 2
+size = Vector2i(250, 100)
+ok_button_text = "Yes"
+dialog_text = "Do you wish to End the Game?"
+cancel_button_text = "No"
+
 [connection signal="pressed" from="UI/Buttons/btn_start" to="sound/pling" method="play"]
+[connection signal="pressed" from="UI/Buttons/btn_start" to="UI/Buttons/btn_continue" method="enable"]
 [connection signal="pressed" from="UI/Buttons/btn_continue" to="sound/pling" method="play"]
 [connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/side_theme" method="fade_out_music"]
 [connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/pling" method="play"]
 [connection signal="pressed" from="UI/Buttons/btn_credits" to="UI/Buttons/btn_credits" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Buttons/btn_credits" to="SplashScreen" method="fade_in_opacity"]
 [connection signal="pressed" from="UI/Buttons/btn_end" to="sound/pling" method="play"]
+[connection signal="pressed" from="UI/Buttons/btn_end" to="ConfirmationDialog" method="show"]
+[connection signal="confirmed" from="ConfirmationDialog" to="UI/Buttons/btn_end" method="quit"]

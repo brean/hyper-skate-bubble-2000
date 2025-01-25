@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://11ctkc21r5in"]
+[gd_scene load_steps=4 format=3 uid="uid://40re6c5wyw4a"]
 
-[ext_resource type="PackedScene" uid="uid://bnlr40ycomusq" path="res://scenes/skate_straight.tscn" id="1_yroty"]
-[ext_resource type="PackedScene" uid="uid://blohojrtu1lru" path="res://scenes/skate_corner.tscn" id="2_ocrj8"]
-[ext_resource type="PackedScene" uid="uid://f6cst0q7gxxg" path="res://scenes/skate_end.tscn" id="3_c8jfe"]
+[ext_resource type="PackedScene" path="res://scenes/skate_straight.tscn" id="1_yroty"]
+[ext_resource type="PackedScene" path="res://scenes/skate_corner.tscn" id="2_ocrj8"]
+[ext_resource type="PackedScene" path="res://scenes/skate_end.tscn" id="3_c8jfe"]
 
 [node name="SkatePark" type="Node3D"]
 
