@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://duw12wjdvnqia"]
 
 [ext_resource type="Sky" uid="uid://dq2xf5nivn2g8" path="res://graphics/hyper_sky.tres" id="1_ua3nr"]
-[ext_resource type="PackedScene" path="res://scenes/skate_level.tscn" id="2_g6jql"]
-[ext_resource type="PackedScene" path="res://scenes/bubble.tscn" id="2_t3376"]
+[ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
+[ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
 [ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="6_7qsua"]
