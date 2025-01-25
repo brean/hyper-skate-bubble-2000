@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://duw12wjdvnqia"]
 
-[ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_f6j3o"]
+[ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 
 [sub_resource type="Environment" id="Environment_ykkkh"]
@@ -14,9 +14,6 @@
 [sub_resource type="SphereMesh" id="SphereMesh_g66tp"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="SkatePark" parent="." instance=ExtResource("1_f6j3o")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ykkkh")
@@ -40,5 +37,7 @@ mesh = SubResource("SphereMesh_g66tp")
 skeleton = NodePath("../..")
 
 [node name="Bubble" parent="." instance=ExtResource("2_t3376")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.879392, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82617, 0)
 movement_speed = 100
+
+[node name="SkateLevel" parent="." instance=ExtResource("2_g6jql")]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpifkiq67qtrj"]
+
+[ext_resource type="Script" path="res://models/bubble.gd" id="1_0l421"]
+[ext_resource type="PackedScene" uid="uid://cpff7l1gha8kv" path="res://models/mc.glb" id="2_iyq1i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kswou"]
+radius = 1.0
+
+[node name="Bubble" type="CharacterBody3D"]
+script = ExtResource("1_0l421")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, -2)
+current = true
+fov = 90.0
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kswou")
+
+[node name="Mesh" parent="." instance=ExtResource("2_iyq1i")]

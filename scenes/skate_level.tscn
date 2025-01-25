@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0upcrn7jbd0"]
+
+[ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
+
+[node name="SkateLevel" type="Node3D"]
+
+[node name="SkatePark" parent="." instance=ExtResource("1_hrd32")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
