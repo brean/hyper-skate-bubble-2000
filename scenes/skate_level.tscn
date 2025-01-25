@@ -69,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105741, -0.0181274, 1.4729
 shape = SubResource("BoxShape3D_6iqe5")
 
 [node name="barrierRed" parent="." instance=ExtResource("3_h2076")]
-transform = Transform3D(2.5, 0, -4.33013, 0, 5, 0, 4.33013, 0, 2.5, 19.3971, 0, -9.25485)
+transform = Transform3D(10, 0, -4.33013, 0, 5, 0, 17.3205, 0, 2.5, 22.2296, 1.90735e-06, -5.6721)
 
 [node name="flagCheckers" parent="." instance=ExtResource("4_dej4a")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -30.7175, 0.082068, 54.9486)
