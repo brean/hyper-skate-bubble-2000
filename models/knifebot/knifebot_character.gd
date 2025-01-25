@@ -13,21 +13,30 @@ var direction_to_target: Vector3
 # direction for driving force, in global space
 var move_direction: Vector3
 
+# save for the gravity
 var velocity_y: float
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
+
+signal knifebot_distance_to_target(distance:float)
+
+func _ready() -> void:
+	if target.has_method("_on_knifebot_distance_changed"):
+		knifebot_distance_to_target.connect(target._on_knifebot_distance_changed)
 
 
 func _physics_process(delta: float) -> void:
 	# save current gravity-related velocity
 	velocity_y = velocity.y
 	
-	# work with navigation mesh
+	
+
+	# work with navigation mesh	
 	nav.target_position = target.global_position
 	direction_to_target = (nav.get_next_path_position() - global_position).normalized()
+	# send info for distance to target
+	knifebot_distance_to_target.emit(nav.distance_to_target())
 	
-	# get direction to target
-	#direction_to_target = (target.global_position - global_position).normalized()
 
 	# get local driving force in global space
 	move_direction = direction_to_target - (direction_to_target * transform.basis.y)
