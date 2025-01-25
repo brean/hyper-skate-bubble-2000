@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4na8wgfnidio"
 path.s3tc="res://.godot/imported/colormap.png-0e26363a7074934cfd6b5288bfe6eb72.s3tc.ctex"
+path.etc2="res://.godot/imported/colormap.png-0e26363a7074934cfd6b5288bfe6eb72.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/kenney_skate_park/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-0e26363a7074934cfd6b5288bfe6eb72.s3tc.ctex"]
+dest_files=["res://.godot/imported/colormap.png-0e26363a7074934cfd6b5288bfe6eb72.s3tc.ctex", "res://.godot/imported/colormap.png-0e26363a7074934cfd6b5288bfe6eb72.etc2.ctex"]
 
 [params]
 

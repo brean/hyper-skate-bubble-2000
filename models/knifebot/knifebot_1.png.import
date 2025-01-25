@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://diaehtn3d3i1i"
 path.s3tc="res://.godot/imported/knifebot_1.png-86e2b4bbf944e7a53572b2ea5963c097.s3tc.ctex"
+path.etc2="res://.godot/imported/knifebot_1.png-86e2b4bbf944e7a53572b2ea5963c097.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/knifebot/knifebot_1.png"
-dest_files=["res://.godot/imported/knifebot_1.png-86e2b4bbf944e7a53572b2ea5963c097.s3tc.ctex"]
+dest_files=["res://.godot/imported/knifebot_1.png-86e2b4bbf944e7a53572b2ea5963c097.s3tc.ctex", "res://.godot/imported/knifebot_1.png-86e2b4bbf944e7a53572b2ea5963c097.etc2.ctex"]
 
 [params]
 

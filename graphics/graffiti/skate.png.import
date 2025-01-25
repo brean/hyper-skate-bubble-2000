@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtysp6wp5dd82"
 path.s3tc="res://.godot/imported/skate.png-c98bd155879ed47344840997e911199d.s3tc.ctex"
+path.etc2="res://.godot/imported/skate.png-c98bd155879ed47344840997e911199d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://graphics/graffiti/skate.png"
-dest_files=["res://.godot/imported/skate.png-c98bd155879ed47344840997e911199d.s3tc.ctex"]
+dest_files=["res://.godot/imported/skate.png-c98bd155879ed47344840997e911199d.s3tc.ctex", "res://.godot/imported/skate.png-c98bd155879ed47344840997e911199d.etc2.ctex"]
 
 [params]
 

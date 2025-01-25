@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xjis3hpaadvs"
 path.s3tc="res://.godot/imported/billboardLow_tankcoBanner.png-1f98a77afc7afb7f3b99b3f531ba50cd.s3tc.ctex"
+path.etc2="res://.godot/imported/billboardLow_tankcoBanner.png-1f98a77afc7afb7f3b99b3f531ba50cd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/kenney_racing_kit/billboardLow_tankcoBanner.png"
-dest_files=["res://.godot/imported/billboardLow_tankcoBanner.png-1f98a77afc7afb7f3b99b3f531ba50cd.s3tc.ctex"]
+dest_files=["res://.godot/imported/billboardLow_tankcoBanner.png-1f98a77afc7afb7f3b99b3f531ba50cd.s3tc.ctex", "res://.godot/imported/billboardLow_tankcoBanner.png-1f98a77afc7afb7f3b99b3f531ba50cd.etc2.ctex"]
 
 [params]
 
