@@ -58,6 +58,7 @@ func _physics_process(_delta):
 		local_movement += Vector3.FORWARD * movement_delta
 	velocity = to_global(local_movement)
 	velocity.y = gravity.y
+	$Mesh.rotation += local_movement
 	move_and_slide()
 
 
