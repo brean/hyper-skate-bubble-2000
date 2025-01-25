@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bj8dsmmy4uqjh"]
+[gd_scene load_steps=22 format=3 uid="uid://bj8dsmmy4uqjh"]
 
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="1_1hvkk"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_80k55"]
@@ -17,9 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="11_k7np0"]
 [ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="13_hq61g"]
 [ext_resource type="Script" path="res://scripts/btn_start.gd" id="14_277qq"]
-[ext_resource type="Script" path="res://scripts/switch_scene.gd" id="15_br3fc"]
 [ext_resource type="Script" path="res://scripts/btn_continue.gd" id="15_rstw1"]
-[ext_resource type="Script" path="res://scripts/btn_end.gd" id="16_w7vf0"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001
@@ -107,7 +105,7 @@ _data = {
 "bg2": SubResource("Animation_de406")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_sound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,6 +115,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_80k55")
+button_sound = NodePath("sound/pling")
 
 [node name="sound" type="Node" parent="."]
 
@@ -245,8 +244,6 @@ text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-script = ExtResource("15_br3fc")
-scene = "res://scenes/main.tscn"
 
 [node name="btn_continue" type="TextureButton" parent="UI/Buttons"]
 visible = false
@@ -281,8 +278,6 @@ texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
 texture_disabled = ExtResource("13_hq61g")
 texture_focused = ExtResource("9_agarx")
-script = ExtResource("15_br3fc")
-scene = "res://scenes/credits.tscn"
 
 [node name="lbl_credits" type="Label" parent="UI/Buttons/btn_credits"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -298,15 +293,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="btn_end" type="TextureButton" parent="UI/Buttons" node_paths=PackedStringArray("conf_dialog")]
+[node name="btn_end" type="TextureButton" parent="UI/Buttons"]
 layout_mode = 2
 texture_normal = ExtResource("7_shkxs")
 texture_pressed = ExtResource("8_t1eaf")
 texture_hover = ExtResource("9_agarx")
 texture_disabled = ExtResource("13_hq61g")
 texture_focused = ExtResource("9_agarx")
-script = ExtResource("16_w7vf0")
-conf_dialog = NodePath("../../../ConfirmationDialog")
 
 [node name="lbl_end" type="Label" parent="UI/Buttons/btn_end"]
 modulate = Color(0.343716, 0.0317868, 0.511976, 0.858824)
@@ -360,13 +353,6 @@ ok_button_text = "Yes"
 dialog_text = "Do you wish to End the Game?"
 cancel_button_text = "No"
 
-[connection signal="pressed" from="UI/Buttons/btn_start" to="sound/pling" method="play"]
-[connection signal="pressed" from="UI/Buttons/btn_start" to="UI/Buttons/btn_start/lbl_start" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Buttons/btn_continue" to="sound/pling" method="play"]
-[connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/side_theme" method="fade_out_music"]
-[connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/pling" method="play"]
-[connection signal="pressed" from="UI/Buttons/btn_credits" to="UI/Buttons/btn_credits" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Buttons/btn_credits" to="SplashScreen" method="fade_in_opacity"]
-[connection signal="pressed" from="UI/Buttons/btn_end" to="sound/pling" method="play"]
-[connection signal="pressed" from="UI/Buttons/btn_end" to="ConfirmationDialog" method="show"]
-[connection signal="confirmed" from="ConfirmationDialog" to="UI/Buttons/btn_end" method="quit"]
+[connection signal="pressed" from="UI/Buttons/btn_start" to="." method="_on_start_game"]
+[connection signal="pressed" from="UI/Buttons/btn_credits" to="." method="_on_show_credits"]
+[connection signal="pressed" from="UI/Buttons/btn_end" to="." method="_on_game_quit"]
