@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cl6ejhduvkug5"
-path="res://.godot/imported/tent.glb-dd47bffcb79463e691d1d8663a8e19b4.scn"
+uid="uid://cwju743g0m0ly"
+path="res://.godot/imported/spikes.glb-19e6b0070760fbefe8e1f24378fdf7cd.scn"
 
 [deps]
 
-source_file="res://models/kenney_racing_kit/tent.glb"
-dest_files=["res://.godot/imported/tent.glb-dd47bffcb79463e691d1d8663a8e19b4.scn"]
+source_file="res://models/obstacles/spikes.glb"
+dest_files=["res://.godot/imported/spikes.glb-19e6b0070760fbefe8e1f24378fdf7cd.scn"]
 
 [params]
 
@@ -31,12 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:tent(Clone)": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
