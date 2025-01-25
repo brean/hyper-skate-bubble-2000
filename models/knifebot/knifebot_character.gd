@@ -24,6 +24,7 @@ func _ready() -> void:
     # tell the target how far the knifebot is away
     if target.has_method("_on_knifebot_distance_changed"):
         knifebot_distance_to_target.connect(target._on_knifebot_distance_changed)
+    $particles.emitting = true
 
 
 func _physics_process(delta: float) -> void:
