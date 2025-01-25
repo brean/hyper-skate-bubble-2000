@@ -2,12 +2,12 @@ extends TextureButton
 
 
 func _ready() -> void:
-	disable()
+    disable()
 
 func disable():
-	self.disabled = true
-	self.focus_mode=Control.FOCUS_NONE
+    self.disabled = true
+    self.focus_mode=Control.FOCUS_NONE
 
 func enable():
-	self.disabled = false
-	self.focus_mode=Control.FOCUS_ALL
+    self.disabled = false
+    self.focus_mode=Control.FOCUS_ALL

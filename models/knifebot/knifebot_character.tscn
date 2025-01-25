@@ -250,6 +250,20 @@ _data = {
 height = 0.545325
 radius = 0.620837
 
+[sub_resource type="Animation" id="Animation_k1evy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node/knife:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_3dpyb"]
 resource_name = "move"
 length = 1.5
@@ -264,20 +278,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-0.436332, -0.1, 0, 0.1, 0, 0.436332, -0.1, 0, 0.1, 0, -0.436332, -0.1, 0, 0.1, 0),
 "times": PackedFloat32Array(0, 0.2, 1.5)
-}
-
-[sub_resource type="Animation" id="Animation_k1evy"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node/knife:rotation:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fqrlp"]
@@ -312,7 +312,6 @@ mesh = SubResource("ArrayMesh_i60po")
 skeleton = NodePath("")
 
 [node name="knife" type="Node3D" parent="Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="holder" type="MeshInstance3D" parent="Node/knife"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
