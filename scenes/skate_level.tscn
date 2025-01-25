@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=32 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
@@ -16,6 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://dvaeutmwpdasy" path="res://models/kenney_racing_kit/fenceCurved.glb" id="14_2feko"]
 [ext_resource type="PackedScene" uid="uid://b4f44c6cjj4p0" path="res://models/kenney_racing_kit/fenceStraight.glb" id="15_fslse"]
 [ext_resource type="PackedScene" uid="uid://ccgrvupfch2jd" path="res://models/kenney_racing_kit/lightColored.glb" id="16_cxjab"]
+[ext_resource type="PackedScene" uid="uid://div3jd85b4d00" path="res://models/kenney_racing_kit/rail.glb" id="17_1621h"]
+[ext_resource type="PackedScene" uid="uid://cv53wfdmrub0f" path="res://models/kenney_racing_kit/railDouble.glb" id="18_n6tjp"]
+[ext_resource type="PackedScene" uid="uid://cf6thewn3q35f" path="res://models/kenney_racing_kit/ramp.glb" id="19_a0mvf"]
+[ext_resource type="PackedScene" uid="uid://cl6ejhduvkug5" path="res://models/kenney_racing_kit/tent.glb" id="20_q7b6l"]
+[ext_resource type="PackedScene" uid="uid://i1id6n2jgubh" path="res://models/kenney_racing_kit/treeLarge.glb" id="21_htcvp"]
+[ext_resource type="PackedScene" uid="uid://c3o1402g8nb1h" path="res://models/kenney_skate_park/bowl-side.glb" id="22_oq82r"]
+[ext_resource type="PackedScene" uid="uid://b3s07fijrt5ao" path="res://models/kenney_skate_park/obstacle-box.glb" id="23_spvkw"]
+[ext_resource type="PackedScene" uid="uid://dl0wr4vrteafx" path="res://models/kenney_skate_park/obstacle-end.glb" id="24_v81bo"]
+[ext_resource type="PackedScene" uid="uid://nddlgixtdbgn" path="res://models/kenney_skate_park/pallet.glb" id="25_u14ck"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqe5"]
 size = Vector3(0.0664062, 1, 4.01868)
@@ -136,3 +145,33 @@ shape = SubResource("BoxShape3D_5wq84")
 
 [node name="lightColored" parent="." instance=ExtResource("16_cxjab")]
 transform = Transform3D(4.69472, 8.82948, 3.85949e-07, 0, -4.37114e-07, 10, 8.82947, -4.69472, -2.05213e-07, -96.7037, 6.72642, -100.014)
+
+[node name="rail" parent="." instance=ExtResource("17_1621h")]
+transform = Transform3D(7.12222, 0, 7.01954, 0, 10, 0, -7.01954, 0, 7.12222, -102.073, 0.0200024, -113.772)
+
+[node name="railDouble" parent="." instance=ExtResource("18_n6tjp")]
+transform = Transform3D(7.56995, 0, -6.53421, 0, 10, 0, 6.53421, 0, 7.56995, -100.165, 0.0200005, -136.62)
+
+[node name="railDouble2" parent="." instance=ExtResource("18_n6tjp")]
+transform = Transform3D(-6.47708, 0, 7.61889, 0, 10, 0, -7.61889, 0, -6.47708, -117.592, 0.0200005, -141.557)
+
+[node name="ramp" parent="." instance=ExtResource("19_a0mvf")]
+transform = Transform3D(-7.74017, 0, 6.33165, 0, 10, 0, -6.33165, 0, -7.74017, -119.821, -0.440453, -124.389)
+
+[node name="tent" parent="." instance=ExtResource("20_q7b6l")]
+transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, -141.147, 0.0200005, -64.2436)
+
+[node name="treeLarge" parent="." instance=ExtResource("21_htcvp")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -95.4218, 0.0200005, -23.4935)
+
+[node name="bowl-side2" parent="." instance=ExtResource("22_oq82r")]
+transform = Transform3D(-8.59022, 0, 5.11938, 0, 10, 0, -5.11938, 0, -8.59022, -184.729, 0.0200043, 3.48866)
+
+[node name="obstacle-box2" parent="." instance=ExtResource("23_spvkw")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -69.797, 0.0199966, 38.5232)
+
+[node name="obstacle-end2" parent="." instance=ExtResource("24_v81bo")]
+transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 15, -42.4761, 0.0199966, 9.95746)
+
+[node name="pallet2" parent="." instance=ExtResource("25_u14ck")]
+transform = Transform3D(8.48104, 0, 5.2983, 0, 10, 0, -5.2983, 0, 8.48104, -34.5352, -0.0723476, 31.6371)
