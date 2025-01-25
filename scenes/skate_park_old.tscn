@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://40re6c5wyw4a"]
+
+[ext_resource type="PackedScene" uid="uid://b8cyxt7wip24t" path="res://models/kenney_skate_park/bowl-corner-inner.glb" id="1_bkmln"]
+[ext_resource type="PackedScene" uid="uid://c3o1402g8nb1h" path="res://models/kenney_skate_park/bowl-side.glb" id="2_w34ni"]
+[ext_resource type="PackedScene" uid="uid://bl1t0q2rhinso" path="res://models/kenney_skate_park/floor-concrete.glb" id="3_ouc0w"]
+[ext_resource type="PackedScene" uid="uid://cuv28thwbvyc8" path="res://models/kenney_skate_park/bowl-corner-outer.glb" id="4_ndo7a"]
+[ext_resource type="PackedScene" uid="uid://hk1a6afcl7pr" path="res://models/obstacles/trashcan.gltf" id="5_mfa1f"]
+[ext_resource type="PackedScene" uid="uid://c1shm65a60f8u" path="res://models/kenney_skate_park/obstacle-middle.glb" id="6_dkwyy"]
+[ext_resource type="PackedScene" uid="uid://b3s07fijrt5ao" path="res://models/kenney_skate_park/obstacle-box.glb" id="7_e3rkg"]
+[ext_resource type="PackedScene" uid="uid://kqj7bfkuc5lh" path="res://models/kenney_skate_park/half-pipe.glb" id="8_totl6"]
+[ext_resource type="PackedScene" uid="uid://r6bqndlq2084" path="res://models/kenney_skate_park/floor-wood.glb" id="9_bhs65"]
+[ext_resource type="PackedScene" uid="uid://pn4yv7jwvstr" path="res://models/kenney_skate_park/skateboard.glb" id="10_5hjvh"]
+[ext_resource type="PackedScene" uid="uid://cwak132p3x71p" path="res://models/kenney_skate_park/steps.glb" id="11_75d5p"]
+
+[node name="SkatePark" type="Node3D"]
+
+[node name="bowl-corner-inner2" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
+
+[node name="bowl-side2" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(34, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -2.5)
+
+[node name="bowl-side4" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-10, 0, 1.50996e-07, 0, 1, 0, -1.50996e-06, 0, -1, 30, 0, -3.5)
+
+[node name="bowl-corner-inner4" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 39.5, 0, 2.5)
+
+[node name="bowl-corner-inner6" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, 39.5, 0, -8.5)
+
+[node name="bowl-corner-inner5" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 2.5)
+
+[node name="bowl-corner-inner7" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.5, 0, -3.5)
+
+[node name="bowl-side10" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(18, 0, -2.38419e-07, 0, 1, 0, 4.29153e-06, 0, 1, 34, 0, -14.5)
+
+[node name="bowl-corner-inner9" parent="." instance=ExtResource("1_bkmln")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 24.5, 0, -14.5)
+
+[node name="bowl-side3" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-38, 0, -1.50996e-07, 0, 1, 0, 5.73784e-06, 0, -1, 20, 0, 2.5)
+
+[node name="bowl-side5" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-1.74846e-07, 0, 1, 0, 1, 0, -4, 0, -4.37114e-08, 0.5, 0, 0)
+
+[node name="floor-concrete2" parent="." instance=ExtResource("3_ouc0w")]
+transform = Transform3D(-1.31134e-06, 0, 60, 0, 1, 0, -30, 0, -2.62268e-06, 30, 0.01, -12)
+
+[node name="bowl-corner-outer2" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 0, -2.512)
+
+[node name="bowl-corner-outer3" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.5, 0, -3.5)
+
+[node name="bowl-corner-outer6" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.5, 0, -9.5)
+
+[node name="bowl-corner-outer4" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 28.5, 0, -8.5)
+
+[node name="bowl-side6" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-4.37114e-07, 0, -1, 0, 1, 0, 10, 0, -4.37114e-08, 39.5, 0, -3)
+
+[node name="bowl-side11" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 40.5, 0, -4)
+
+[node name="bowl-side8" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 24.5, 0, -9)
+
+[node name="bowl-side7" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -8.5)
+
+[node name="bowl-corner-outer5" parent="." instance=ExtResource("4_ndo7a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.5, 0, -9.5)
+
+[node name="bowl-side9" parent="." instance=ExtResource("2_w34ni")]
+transform = Transform3D(-11, 0, 1.50996e-07, 0, 1, 0, -1.66095e-06, 0, -1, 34.5, 0, -9.5)
+
+[node name="blockbench_export" parent="." instance=ExtResource("5_mfa1f")]
+transform = Transform3D(1, 0, 0, 0, 0.679953, -0.733255, 0, 0.733255, 0.679953, 16.7477, 0.0100002, 2.03908)
+
+[node name="obstacle-middle2" parent="." instance=ExtResource("6_dkwyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5169, 0.0100002, -0.944834)
+
+[node name="obstacle-box2" parent="." instance=ExtResource("7_e3rkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6193, 0.0100002, 1.09161)
+
+[node name="half-pipe2" parent="." instance=ExtResource("8_totl6")]
+transform = Transform3D(-0.728168, 0, -0.685399, 0, 1, 0, 0.685399, 0, -0.728168, 21.5976, 0.0100002, -0.831903)
+
+[node name="floor-wood2" parent="." instance=ExtResource("9_bhs65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6797, 0.0379701, 1.21971)
+
+[node name="obstacle-box3" parent="." instance=ExtResource("7_e3rkg")]
+transform = Transform3D(0.933418, 0, -0.358792, 0, 1, 0, 0.358792, 0, 0.933418, 27.6936, 0.0100002, -0.606797)
+
+[node name="skateboard2" parent="." instance=ExtResource("10_5hjvh")]
+transform = Transform3D(0.89926, -0.00411484, 0.437395, 0, 0.999956, 0.00940719, -0.437414, -0.00845951, 0.899221, 29.575, 0.0671978, -5.84774)
+
+[node name="steps2" parent="." instance=ExtResource("11_75d5p")]
+transform = Transform3D(0.567528, 0, -0.823354, 0, 1, 0, 0.823354, 0, 0.567528, 33.057, 0.0100002, -11.6294)
