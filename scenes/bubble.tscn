@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpifkiq67qtrj"]
 
-[ext_resource type="Script" path="res://models/bubble.gd" id="1_0l421"]
+[ext_resource type="Script" path="res://models/bubble_alternative.gd" id="1_n386i"]
 [ext_resource type="PackedScene" uid="uid://cpff7l1gha8kv" path="res://models/mc.glb" id="2_iyq1i"]
 [ext_resource type="Script" path="res://models/camera_3d.gd" id="2_k0l4y"]
 
@@ -26,10 +26,10 @@ material = SubResource("StandardMaterial3D_1cjwj")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Bubble" type="CharacterBody3D" groups=["player"]]
-script = ExtResource("1_0l421")
+script = ExtResource("1_n386i")
 
 [node name="camera_controler" type="Node3D" parent="."]
-transform = Transform3D(-1, -1.77636e-15, -8.74228e-08, -1.51808e-08, 0.984808, 0.173648, 8.60947e-08, 0.173648, -0.984808, 0, 1.5, -3.4201)
+transform = Transform3D(1, -1.51808e-08, 1.73517e-07, -1.51808e-08, 0.984808, 0.173648, -1.73517e-07, -0.173648, 0.984808, 0, 1.5, 3.42)
 
 [node name="Camera3D" type="Camera3D" parent="camera_controler" node_paths=PackedStringArray("camera_controler", "camera_target")]
 current = true
