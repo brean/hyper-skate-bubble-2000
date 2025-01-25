@@ -1,18 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=9 format=3 uid="uid://duw12wjdvnqia"]
 
-[ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
-[ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oje3r"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_j63bv"]
-sky_material = SubResource("ProceduralSkyMaterial_oje3r")
+[ext_resource type="Sky" uid="uid://dq2xf5nivn2g8" path="res://graphics/hyper_sky.tres" id="1_ua3nr"]
+[ext_resource type="PackedScene" path="res://scenes/skate_level.tscn" id="2_g6jql"]
+[ext_resource type="PackedScene" path="res://scenes/bubble.tscn" id="2_t3376"]
 
 [sub_resource type="Environment" id="Environment_fim2q"]
 background_mode = 2
-sky = SubResource("Sky_j63bv")
+sky = ExtResource("1_ua3nr")
 tonemap_mode = 2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_56rxg"]
