@@ -245,6 +245,8 @@ text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+script = ExtResource("15_br3fc")
+scene = "res://scenes/main.tscn"
 
 [node name="btn_continue" type="TextureButton" parent="UI/Buttons"]
 layout_mode = 2
@@ -358,7 +360,7 @@ dialog_text = "Do you wish to End the Game?"
 cancel_button_text = "No"
 
 [connection signal="pressed" from="UI/Buttons/btn_start" to="sound/pling" method="play"]
-[connection signal="pressed" from="UI/Buttons/btn_start" to="UI/Buttons/btn_continue" method="enable"]
+[connection signal="pressed" from="UI/Buttons/btn_start" to="UI/Buttons/btn_start/lbl_start" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Buttons/btn_continue" to="sound/pling" method="play"]
 [connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/side_theme" method="fade_out_music"]
 [connection signal="pressed" from="UI/Buttons/btn_credits" to="sound/pling" method="play"]
