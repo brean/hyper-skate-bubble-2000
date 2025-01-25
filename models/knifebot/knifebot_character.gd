@@ -21,46 +21,47 @@ var velocity_y: float
 signal knifebot_distance_to_target(distance:float)
 
 func _ready() -> void:
-	# tell the target how far the knifebot is away
-	if target.has_method("_on_knifebot_distance_changed"):
-		knifebot_distance_to_target.connect(target._on_knifebot_distance_changed)
+    # tell the target how far the knifebot is away
+    if target.has_method("_on_knifebot_distance_changed"):
+        knifebot_distance_to_target.connect(target._on_knifebot_distance_changed)
+    $particles.emitting = true
 
 
 func _physics_process(delta: float) -> void:
-	# save current gravity-related velocity
-	velocity_y = velocity.y
-	
-	
+    # save current gravity-related velocity
+    velocity_y = velocity.y
+    
+    
 
-	# work with navigation mesh	
-	nav.target_position = target.global_position
-	direction_to_target = (nav.get_next_path_position() - global_position).normalized()
-	# send info for distance to target
-	knifebot_distance_to_target.emit(nav.distance_to_target())
-	
+    # work with navigation mesh	
+    nav.target_position = target.global_position
+    direction_to_target = (nav.get_next_path_position() - global_position).normalized()
+    # send info for distance to target
+    knifebot_distance_to_target.emit(nav.distance_to_target())
+    
 
-	# get local driving force in global space
-	move_direction = direction_to_target - (direction_to_target * transform.basis.y)
-	
-	# do the rotation
-	rotate_y(to_local(move_direction.normalized()).x * delta * deg_to_rad(rotation_speed))
-	
-	
-	velocity = move_direction.normalized() * speed + Vector3(0, velocity_y, 0)
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	# allign with ground
-	if $RayCast3D.is_colliding():
-		var n = $RayCast3D.get_collision_normal()
-		var xform = align_with_y(global_transform, n)
-		global_transform = global_transform.interpolate_with(xform, 0.2)
+    # get local driving force in global space
+    move_direction = direction_to_target - (direction_to_target * transform.basis.y)
+    
+    # do the rotation
+    rotate_y(to_local(move_direction.normalized()).x * delta * deg_to_rad(rotation_speed))
+    
+    
+    velocity = move_direction.normalized() * speed + Vector3(0, velocity_y, 0)
+    # Add the gravity.
+    if not is_on_floor():
+        velocity += get_gravity() * delta
+        
+    # allign with ground
+    if $RayCast3D.is_colliding():
+        var n = $RayCast3D.get_collision_normal()
+        var xform = align_with_y(global_transform, n)
+        global_transform = global_transform.interpolate_with(xform, 0.2)
 
-	move_and_slide()
+    move_and_slide()
 
 func align_with_y(xform, new_y):
-	xform.basis.y = new_y
-	xform.basis.x = -xform.basis.z.cross(new_y)
-	xform.basis = xform.basis.orthonormalized()
-	return xform
+    xform.basis.y = new_y
+    xform.basis.x = -xform.basis.z.cross(new_y)
+    xform.basis = xform.basis.orthonormalized()
+    return xform

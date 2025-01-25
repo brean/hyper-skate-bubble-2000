@@ -7,12 +7,12 @@ extends WorldEnvironment
 @export var max_saturation: float = 1.5
 
 func _on_knifebot_distance_changed(new_distance: float):
-	if new_distance < knifebot_closest:
-		environment.adjustment_saturation = min_saturation
-		return
+    if new_distance < knifebot_closest:
+        environment.adjustment_saturation = min_saturation
+        return
 
-	if new_distance > knifebot_furthest:
-		environment.adjustment_saturation = max_saturation
-		return
+    if new_distance > knifebot_furthest:
+        environment.adjustment_saturation = max_saturation
+        return
 
-	environment.adjustment_saturation = min_saturation + (new_distance / (knifebot_furthest - knifebot_closest))
+    environment.adjustment_saturation = min_saturation + (new_distance / (knifebot_furthest - knifebot_closest))

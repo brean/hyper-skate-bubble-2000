@@ -7,13 +7,13 @@
 size = Vector3(1, 0.30304, 1)
 
 [node name="Spikes" type="Node3D"]
-script = ExtResource("1_wuotu")
 
 [node name="spikes" parent="." instance=ExtResource("1_nd6vj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433642, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_wuotu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.142242, 0)
 shape = SubResource("BoxShape3D_pnd8f")
