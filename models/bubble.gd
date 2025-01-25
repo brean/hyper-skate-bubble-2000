@@ -18,6 +18,11 @@ func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
+func _process(delta: float) -> void:
+    if global_position.y <= -10:
+        get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
 func _physics_process(_delta):
     var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
