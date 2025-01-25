@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=34 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dl0wr4vrteafx" path="res://models/kenney_skate_park/obstacle-end.glb" id="24_v81bo"]
 [ext_resource type="PackedScene" uid="uid://nddlgixtdbgn" path="res://models/kenney_skate_park/pallet.glb" id="25_u14ck"]
 [ext_resource type="PackedScene" uid="uid://cvy8hnplwcpcu" path="res://models/collectables/finish.gltf" id="26_iyh40"]
+[ext_resource type="PackedScene" uid="uid://c73qeic8qlwia" path="res://models/obstacles/spikes.tscn" id="27_ciulw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqe5"]
 size = Vector3(0.0664062, 1, 4.01868)
@@ -50,7 +51,7 @@ size = Vector3(1.96747, 0.805786, 0.0285645)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.72794, 0.0200005, -1.95734)
+transform = Transform3D(1.80606, 0, -0.859163, 0, 2, 0, 0.859163, 0, 1.80606, 7.72794, 0.0200005, -1.95734)
 
 [node name="rail-high2" parent="Node3D" instance=ExtResource("2_mppjo")]
 
@@ -179,3 +180,6 @@ transform = Transform3D(8.48104, 0, 5.2983, 0, 10, 0, -5.2983, 0, 8.48104, -34.5
 
 [node name="goal" parent="." instance=ExtResource("26_iyh40")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -39.865, 0.0200043, 51.9981)
+
+[node name="Spikes" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.88389, 0, 0.671528, 0, 2, 0, -0.671528, 0, 1.88389, 20.8025, 0.00773931, -14.7259)
