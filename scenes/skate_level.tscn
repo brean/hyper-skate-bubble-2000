@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=4 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
+[ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otk60"]
+size = Vector3(0.106232, 0.963745, 3.9751)
 
 [node name="SkateLevel" type="Node3D"]
 
 [node name="SkatePark" parent="." instance=ExtResource("1_hrd32")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.72794, 0.0200005, -1.95734)
+
+[node name="rail-high2" parent="Node3D" instance=ExtResource("2_mppjo")]
+
+[node name="rail-high3" parent="Node3D" instance=ExtResource("2_mppjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="rail-high4" parent="Node3D" instance=ExtResource("2_mppjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="rail-high5" parent="Node3D" instance=ExtResource("2_mppjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00602722, -0.0181274, 1.48755)
+shape = SubResource("BoxShape3D_otk60")

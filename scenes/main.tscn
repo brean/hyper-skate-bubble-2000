@@ -1,13 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=10 format=3 uid="uid://duw12wjdvnqia"]
 
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 
-[sub_resource type="Environment" id="Environment_ykkkh"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oje3r"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0y4bq"]
+[sub_resource type="Sky" id="Sky_j63bv"]
+sky_material = SubResource("ProceduralSkyMaterial_oje3r")
 
-[sub_resource type="Compositor" id="Compositor_3r1a1"]
+[sub_resource type="Environment" id="Environment_fim2q"]
+background_mode = 2
+sky = SubResource("Sky_j63bv")
+tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_56rxg"]
+
+[sub_resource type="Compositor" id="Compositor_cn8io"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gi1ex"]
 
@@ -16,15 +26,28 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ykkkh")
-camera_attributes = SubResource("CameraAttributesPractical_0y4bq")
-compositor = SubResource("Compositor_3r1a1")
+environment = SubResource("Environment_fim2q")
+camera_attributes = SubResource("CameraAttributesPractical_56rxg")
+compositor = SubResource("Compositor_cn8io")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+sky_mode = 1
+
+[node name="PinkLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.859697, 0.493071, 0.133423, -0.445336, 0.595557, 0.668571, 0.250193, -0.634187, 0.731581, 0, 5.0629, 0)
+light_color = Color(1, 0.613897, 0.984546, 1)
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.0
+directional_shadow_mode = 0
+directional_shadow_split_1 = 1.0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 256.0
+directional_shadow_pancake_size = 0.7
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.7, 3.4, 0)
-visible = false
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.54128, 3.4, 5.25476)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
 mass = 10.0
@@ -37,7 +60,8 @@ mesh = SubResource("SphereMesh_g66tp")
 skeleton = NodePath("../..")
 
 [node name="Bubble" parent="." instance=ExtResource("2_t3376")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82617, 0)
-movement_speed = 100
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.01, 0)
+axis_lock_linear_y = true
+movement_speed = 50
 
 [node name="SkateLevel" parent="." instance=ExtResource("2_g6jql")]

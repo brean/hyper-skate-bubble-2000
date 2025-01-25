@@ -7,12 +7,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_8fn7n"]
+[sub_resource type="Sky" id="Sky_sqe15"]
 sky_material = SubResource("ProceduralSkyMaterial_30ary")
 
 [sub_resource type="Environment" id="Environment_adyvq"]
 background_mode = 2
-sky = SubResource("Sky_8fn7n")
+sky = SubResource("Sky_sqe15")
 tonemap_mode = 2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_k2asa"]
