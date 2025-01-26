@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dpxjun4ev3qfq" path="res://models/knifebot/knifebot_0.png" id="1_jkjwc"]
 [ext_resource type="Script" path="res://models/knifebot/knifebot_character.gd" id="1_t0dls"]
 [ext_resource type="Texture2D" uid="uid://diaehtn3d3i1i" path="res://models/knifebot/knifebot_1.png" id="2_5vxhf"]
-[ext_resource type="AudioStream" uid="uid://wp142md82kpx" path="res://audio/knifebot.ogg" id="5_1pgu6"]
-[ext_resource type="Material" path="res://models/knifebot/metall_red.tres" id="5_63o2f"]
+[ext_resource type="AudioStream" uid="uid://b0qxqvn8cvexd" path="res://audio/knifebot.ogg" id="5_1pgu6"]
+[ext_resource type="Material" uid="uid://4ikkrmcerpo7" path="res://models/knifebot/metall_red.tres" id="5_63o2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iqg2"]
 albedo_texture = ExtResource("1_jkjwc")

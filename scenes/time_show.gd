@@ -2,7 +2,16 @@ extends Label
 
 ## object wich holds the infos
 @export var player_object: CharacterBody3D
+var active = true
+
+func _ready() -> void:
+    var player = $"../../../../../../../Bubble"
+    player.player_dead.connect(_on_stop)
+    player.player_won.connect(_on_stop)
+
+func _on_stop(data):
+    active = false
 
 func _physics_process(delta: float) -> void:
-    if player_object and player_object.get("time_used"):
-        text = str(int(player_object.get("time_used")))
+    if active and player_object and player_object.get("time_used"):
+        text = str("%.2f" % player_object.get("time_used"))
