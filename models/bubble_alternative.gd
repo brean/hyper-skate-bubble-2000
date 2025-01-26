@@ -75,7 +75,9 @@ func _on_player_dead(data):
 
 
 func _physics_process(delta):
-    time_used += delta
+    if first_input:
+        # start adding time after the user started moving the player
+        time_used += delta
 
     if dead_in_space:
         # we died in place e.g. by touching spikes

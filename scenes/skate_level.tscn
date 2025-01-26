@@ -29,8 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cvy8hnplwcpcu" path="res://models/collectables/finish.gltf" id="26_iyh40"]
 [ext_resource type="PackedScene" uid="uid://c73qeic8qlwia" path="res://models/obstacles/spikes.tscn" id="27_ciulw"]
 [ext_resource type="Texture2D" uid="uid://baxk5lkchfq6d" path="res://graphics/images/self_destruct.png" id="28_hyfeu"]
-[ext_resource type="PackedScene" path="res://models/collectables/coin_normal.tscn" id="30_eu33n"]
-[ext_resource type="PackedScene" path="res://models/collectables/coin_special.tscn" id="31_g4syw"]
+[ext_resource type="PackedScene" uid="uid://gcw18kel3qnr" path="res://models/collectables/coin_normal.tscn" id="30_eu33n"]
+[ext_resource type="PackedScene" uid="uid://dxrtxwvnwkhhg" path="res://models/collectables/coin_special.tscn" id="31_g4syw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ks5ni"]
 size = Vector3(1, 1, 0.741821)
