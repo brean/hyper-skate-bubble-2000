@@ -31,6 +31,8 @@ signal coin_collected(coins_total_amount: int, points_total_amount: int)
 # time elapsed in seconds
 var time_used: float = 0
 
+var just_jumped: bool = false
+
 
 
 func _ready():
@@ -69,6 +71,7 @@ func _on_player_dead(data):
         return
     dead_in_space = true
     $Mesh.hide()
+    $audio/plopp.play()
     $death_particles.emitting = true
     await delayTimer(dead_delay)
     get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
@@ -90,10 +93,17 @@ func _physics_process(delta):
  # Add the gravity.
     if not is_on_floor():
         velocity += get_gravity() * delta * jump_mass
+        
+    # filter for touching the ground after jumping
+    if just_jumped and is_on_floor():
+        just_jumped = false
+        $audio/touch_ground.play()
 
     # Handle jump.
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = jump_force
+        $audio/jump.play()
+        just_jumped = true
     
     # handle movement
     var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
@@ -117,7 +127,7 @@ func _physics_process(delta):
         $Mesh.global_rotate(transform.basis.y.normalized(), camera_movement * 0.1)
         $Mesh.global_rotate(transform.basis.z.normalized(), -input_dir.x * 0.1)
     # += Vector3(input_dir.y, camera_movement, -input_dir.x).normalized() * 0.1
-
+    
     move_and_slide()
     
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpifkiq67qtrj"]
+[gd_scene load_steps=11 format=3 uid="uid://bpifkiq67qtrj"]
 
 [ext_resource type="Script" path="res://models/bubble_alternative.gd" id="1_n386i"]
 [ext_resource type="PackedScene" uid="uid://cpff7l1gha8kv" path="res://models/mc.glb" id="2_iyq1i"]
 [ext_resource type="Script" path="res://models/camera_3d.gd" id="2_k0l4y"]
+[ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="4_yvvlw"]
+[ext_resource type="AudioStream" uid="uid://ckgidyacc8ijq" path="res://audio/jump.ogg" id="5_bn7go"]
+[ext_resource type="AudioStream" uid="uid://dxxc8ke6uen87" path="res://audio/landing.ogg" id="6_j7fto"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kswou"]
 radius = 1.0
@@ -66,5 +69,16 @@ draw_pass_1 = SubResource("BoxMesh_8g7dk")
 
 [node name="Collider2" type="CollisionShape3D" parent="Area3D" groups=["player"]]
 shape = SubResource("SphereShape3D_kswou")
+
+[node name="audio" type="Node3D" parent="."]
+
+[node name="plopp" type="AudioStreamPlayer3D" parent="audio"]
+stream = ExtResource("4_yvvlw")
+
+[node name="jump" type="AudioStreamPlayer3D" parent="audio"]
+stream = ExtResource("5_bn7go")
+
+[node name="touch_ground" type="AudioStreamPlayer3D" parent="audio"]
+stream = ExtResource("6_j7fto")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
