@@ -50,6 +50,7 @@ script = ExtResource("1_8i1m2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_s25q2")]
 process_mode = 2
+visible = false
 
 [node name="GameTree" type="Node" parent="."]
 process_mode = 1
@@ -79,6 +80,9 @@ target = NodePath("../Bubble")
 navigation_mesh = SubResource("NavigationMesh_eudlr")
 
 [node name="SkateLevel" parent="GameTree/NavigationRegion3D" instance=ExtResource("2_g6jql")]
+
+[connection signal="on_paused" from="." to="PauseMenu" method="_on_paused"]
+[connection signal="continue_pressed" from="PauseMenu" to="." method="_on_continue"]
 
 [node name="WinAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../WinCam")

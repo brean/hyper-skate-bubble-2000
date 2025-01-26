@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://dqsexqxx6h4uk"]
+[gd_scene load_steps=8 format=3 uid="uid://dqsexqxx6h4uk"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_38yfd"]
+[ext_resource type="Texture2D" uid="uid://djm8pk4mtox2a" path="res://graphics/images/main_menu/background.png" id="1_slyhi"]
+[ext_resource type="FontFile" uid="uid://bxvfg630tf4pg" path="res://fonts/Barlow-Bold.ttf" id="2_857hm"]
+[ext_resource type="FontFile" uid="uid://cxrq4wfev4x5r" path="res://fonts/Barlow-Regular.ttf" id="3_5c2tp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5kjr"]
+font = ExtResource("2_857hm")
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70wax"]
+bg_color = Color(0.239216, 0.0705882, 0.207843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mypc4"]
+bg_color = Color(0.239216, 0.0705882, 0.207843, 1)
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +22,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_38yfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(665, 368)
+scale = Vector2(0.414352, 0.414352)
+texture = ExtResource("1_slyhi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 1280.0
+offset_bottom = 224.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_j5kjr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 329.0
+offset_right = 1283.0
+offset_bottom = 407.0
+focus_neighbor_top = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+theme_override_colors/font_focus_color = Color(0.403922, 0.0705882, 0.27451, 1)
+theme_override_fonts/font = ExtResource("3_5c2tp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_70wax")
+text = "Continue"
+flat = true
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 422.0
+offset_right = 1281.0
+offset_bottom = 489.0
+theme_override_colors/font_focus_color = Color(0.403922, 0.0705882, 0.27451, 1)
+theme_override_fonts/font = ExtResource("3_5c2tp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_mypc4")
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="ContinueButton" to="." method="_emit_continue_signal"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit"]
