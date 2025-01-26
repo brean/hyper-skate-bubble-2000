@@ -16,9 +16,10 @@ extends CharacterBody3D
 @export var dead_delay: float = 1.0  ## Time we wait after the player died before we jump back to main menu
 
 var dead_in_space: bool = false  ## the player died in space, e.g. by touching spikes
+var first_input:bool = false  ## the user pressed something for the first time
 
 signal player_dead(data)  ## signal that the player died
-
+signal player_moved(data)  ## sinal that the player moved the first time
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -32,6 +33,9 @@ func _process(delta: float) -> void:
 
 func dispatch_player_dead(data):
     emit_signal("player_dead", data)
+    
+func dispatch_player_moved(data):
+    emit_signal("player_moved", data)
 
 
 func delayTimer(seconds: float):
@@ -62,7 +66,11 @@ func _physics_process(_delta):
         move_and_slide()
         return
 
-    if !Input.is_anything_pressed():
+    if Input.is_anything_pressed():
+        if not first_input:
+            first_input = true
+            self.dispatch_player_moved("first")
+    else:
         velocity = gravity
         move_and_slide()
         return
