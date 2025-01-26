@@ -1,7 +1,7 @@
 extends WorldEnvironment
 
 @export var knifebot_closest: float = 0.5  ## Minimum distance at which the desaturation effect will be strongest
-@export var knifebot_furthest: float = 4  ## Maximum distance at which the desaturation effect will not occur
+@export var knifebot_furthest: float = 13  ## Maximum distance at which the desaturation effect will not occur
 
 @export var min_saturation: float = 0
 @export var max_saturation: float = 1.5
