@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=11 format=3 uid="uid://duw12wjdvnqia"]
 
+[ext_resource type="Script" path="res://scenes/pause_menu_handler.gd" id="1_8i1m2"]
 [ext_resource type="PackedScene" uid="uid://0d6v34ejg2gr" path="res://scenes/world_environment.tscn" id="1_ngjse"]
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
+[ext_resource type="PackedScene" uid="uid://dqsexqxx6h4uk" path="res://scenes/pause_menu.tscn" id="2_s25q2"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
@@ -15,32 +17,40 @@ agent_radius = 1.4
 agent_max_climb = 0.1
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_8i1m2")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_ngjse")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_s25q2")]
+process_mode = 2
 
-[node name="Bubble" parent="." instance=ExtResource("2_t3376")]
+[node name="GameTree" type="Node" parent="."]
+process_mode = 1
+
+[node name="WorldEnvironment" parent="GameTree" instance=ExtResource("1_ngjse")]
+
+[node name="Bubble" parent="GameTree" instance=ExtResource("2_t3376")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.01, 0)
 jump_force = 6
 
-[node name="sound" type="Node" parent="."]
+[node name="sound" type="Node" parent="GameTree"]
 
-[node name="main_theme" type="AudioStreamPlayer" parent="sound" node_paths=PackedStringArray("music_player")]
+[node name="main_theme" type="AudioStreamPlayer" parent="GameTree/sound" node_paths=PackedStringArray("music_player")]
 stream = ExtResource("4_60cig")
 autoplay = true
 parameters/looping = true
 script = ExtResource("5_n1elo")
 music_player = NodePath(".")
 
-[node name="plop" type="AudioStreamPlayer" parent="sound"]
+[node name="plop" type="AudioStreamPlayer" parent="GameTree/sound"]
 stream = ExtResource("6_7qsua")
 
-[node name="knifebot_character" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
+[node name="knifebot_character" parent="GameTree" node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.82374)
 target = NodePath("../Bubble")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="GameTree"]
 navigation_mesh = SubResource("NavigationMesh_eudlr")
 
-[node name="SkateLevel" parent="NavigationRegion3D" instance=ExtResource("2_g6jql")]
+[node name="SkateLevel" parent="GameTree/NavigationRegion3D" instance=ExtResource("2_g6jql")]
 
-[connection signal="knifebot_distance_to_target" from="knifebot_character" to="WorldEnvironment" method="_on_knifebot_distance_changed"]
+[connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
