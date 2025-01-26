@@ -45,8 +45,7 @@ music_player = NodePath(".")
 stream = ExtResource("6_7qsua")
 
 [node name="knifebot_character" parent="GameTree" node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.82374)
-target = NodePath("../Bubble")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45731, 0, 5.95354)target = NodePath("../Bubble")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="GameTree"]
 navigation_mesh = SubResource("NavigationMesh_eudlr")

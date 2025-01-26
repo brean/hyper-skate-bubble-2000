@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://j0upcrn7jbd0"]
+[gd_scene load_steps=41 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
+[ext_resource type="Script" path="res://scripts/winning.gd" id="1_wdqjq"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
 [ext_resource type="PackedScene" uid="uid://4lkrdkx3j8li" path="res://models/kenney_racing_kit/barrierRed.glb" id="3_h2076"]
 [ext_resource type="PackedScene" uid="uid://b7rkla2l1wyf7" path="res://models/kenney_racing_kit/flagCheckers.glb" id="4_dej4a"]
@@ -27,6 +28,23 @@
 [ext_resource type="PackedScene" uid="uid://nddlgixtdbgn" path="res://models/kenney_skate_park/pallet.glb" id="25_u14ck"]
 [ext_resource type="PackedScene" uid="uid://cvy8hnplwcpcu" path="res://models/collectables/finish.gltf" id="26_iyh40"]
 [ext_resource type="PackedScene" uid="uid://c73qeic8qlwia" path="res://models/obstacles/spikes.tscn" id="27_ciulw"]
+[ext_resource type="Texture2D" uid="uid://baxk5lkchfq6d" path="res://graphics/images/self_destruct.png" id="28_hyfeu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ks5ni"]
+size = Vector3(1, 1, 0.741821)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgbru"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_px7a7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnawi"]
+transparency = 1
+albedo_texture = ExtResource("28_hyfeu")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_flyy0"]
+height = 2.15959
+radius = 4.00696
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqe5"]
 size = Vector3(0.0664062, 1, 4.01868)
@@ -46,6 +64,34 @@ albedo_texture = ExtResource("13_0qlyh")
 size = Vector3(1.96747, 0.805786, 0.0285645)
 
 [node name="SkateLevel" type="Node3D"]
+
+[node name="WinningArea" type="Node3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -40, 0, 61)
+
+[node name="Area3D" type="Area3D" parent="WinningArea"]
+script = ExtResource("1_wdqjq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinningArea/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.129089)
+shape = SubResource("BoxShape3D_ks5ni")
+
+[node name="SelfDestructBtn" type="Node3D" parent="WinningArea"]
+transform = Transform3D(-0.0625, -5.46392e-09, 2.38836e-16, 0, -2.73196e-09, -0.0625, 5.46392e-09, -0.0625, 2.73196e-09, 0.0176058, 0.25, -0.147295)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WinningArea/SelfDestructBtn"]
+radius = 4.0
+sides = 16
+material = SubResource("StandardMaterial3D_bgbru")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="WinningArea/SelfDestructBtn"]
+transform = Transform3D(2.45, 0, 0, 0, 1, 0, 0, 0, 2.45, 0, 1.18113, 0)
+mesh = SubResource("PlaneMesh_px7a7")
+material = SubResource("StandardMaterial3D_dnawi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WinningArea/SelfDestructBtn"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinningArea/SelfDestructBtn/StaticBody3D"]
+shape = SubResource("CylinderShape3D_flyy0")
 
 [node name="SkatePark" parent="." instance=ExtResource("1_hrd32")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -183,3 +229,36 @@ transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -39.865, 0.0200043, 51.998
 
 [node name="Spikes" parent="." instance=ExtResource("27_ciulw")]
 transform = Transform3D(1.88389, 0, 0.671528, 0, 2, 0, -0.671528, 0, 1.88389, 20.8025, 0.00773931, -14.7259)
+
+[node name="Spikes2" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.88389, 0, 0.671528, 0, 2, 0, -0.671528, 0, 1.88389, 3.59801, 0.00773931, -44.7626)
+
+[node name="Spikes3" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.30054, 0, 1.5194, 0, 2, 0, -1.5194, 0, 1.30054, -26.5728, 0.00773931, -62.3258)
+
+[node name="Spikes4" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.98818, 0, -0.217143, 0, 2, 0, 0.217143, 0, 1.98818, -67.6405, 0.00773931, -79.6091)
+
+[node name="Spikes5" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.98818, 0, -0.217143, 0, 2, 0, 0.217143, 0, 1.98818, -122.017, 0.00773931, -177.323)
+
+[node name="Spikes6" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.98818, 0, -0.217143, 0, 2, 0, 0.217143, 0, 1.98818, -160.6, 0.00772405, -122.054)
+
+[node name="Spikes7" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.98818, 0, -0.217143, 0, 2, 0, 0.217143, 0, 1.98818, -140.725, 0.00772405, -23.7691)
+
+[node name="Spikes8" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.91988, 0, 0.560395, 0, 2, 0, -0.560395, 0, 1.91988, -150.199, 0.00772405, 24.2652)
+
+[node name="Spikes9" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.98009, 0, -0.281456, 0, 2, 0, 0.281456, 0, 1.98009, -118.165, 0.00772405, 14.7847)
+
+[node name="Spikes10" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.88179, 0, 0.677377, 0, 2, 0, -0.677377, 0, 1.88179, -57.751, 0.00772787, 42.1222)
+
+[node name="Spikes11" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.88179, 0, 0.677377, 0, 2, 0, -0.677377, 0, 1.88179, -37.388, 0.00772787, 37.4809)
+
+[node name="Spikes12" parent="." instance=ExtResource("27_ciulw")]
+transform = Transform3D(1.99773, 0, 0.0952248, 0, 2, 0, -0.0952248, 0, 1.99773, -50.1487, 0.00772787, 27.3086)
