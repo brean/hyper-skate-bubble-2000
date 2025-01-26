@@ -61,3 +61,10 @@ one_shot = true
 explosiveness = 0.98
 process_material = SubResource("ParticleProcessMaterial_8m3ob")
 draw_pass_1 = SubResource("BoxMesh_8g7dk")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Collider2" type="CollisionShape3D" parent="Area3D" groups=["player"]]
+shape = SubResource("SphereShape3D_kswou")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
