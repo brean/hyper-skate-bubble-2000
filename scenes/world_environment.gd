@@ -9,8 +9,9 @@ extends WorldEnvironment
 var dead_in_space: bool = false
 
 func _ready() -> void:
-    var player = get_node('../Bubble')
-    player.player_dead.connect(_on_player_dead)
+    var player = $"../Bubble"
+    if player.has_signal("player_dead"):
+        player.player_dead.connect(_on_player_dead)
 
 func _on_knifebot_distance_changed(new_distance: float):
     if dead_in_space:

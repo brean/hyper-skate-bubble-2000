@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=4 uid="uid://cs0qg2oj0ftox"]
+[gd_scene load_steps=34 format=4 uid="uid://cs0qg2oj0ftox"]
 
 [ext_resource type="Texture2D" uid="uid://dpxjun4ev3qfq" path="res://models/knifebot/knifebot_0.png" id="1_jkjwc"]
 [ext_resource type="Script" path="res://models/knifebot/knifebot_character.gd" id="1_t0dls"]
 [ext_resource type="Texture2D" uid="uid://diaehtn3d3i1i" path="res://models/knifebot/knifebot_1.png" id="2_5vxhf"]
-[ext_resource type="AudioStream" uid="uid://b8daf01nhvgcy" path="res://audio/knifebot.ogg" id="5_1pgu6"]
-[ext_resource type="Material" uid="uid://4ikkrmcerpo7" path="res://models/knifebot/metall_red.tres" id="5_63o2f"]
+[ext_resource type="AudioStream" uid="uid://wp142md82kpx" path="res://audio/knifebot.ogg" id="5_1pgu6"]
+[ext_resource type="Material" path="res://models/knifebot/metall_red.tres" id="5_63o2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iqg2"]
 albedo_texture = ExtResource("1_jkjwc")
@@ -335,6 +335,24 @@ emission_energy_multiplier = 5.0
 material = SubResource("StandardMaterial3D_jxhmh")
 size = Vector3(0.25, 0.25, 0.25)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6tihr"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 10, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cjwj"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7evwp"]
+material = SubResource("StandardMaterial3D_1cjwj")
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="knifebot_character" type="CharacterBody3D"]
 script = ExtResource("1_t0dls")
 
@@ -410,3 +428,12 @@ lifetime = 6.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_yaqak")
 draw_pass_1 = SubResource("BoxMesh_84b3y")
+
+[node name="death_particles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 2000
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.98
+process_material = SubResource("ParticleProcessMaterial_6tihr")
+draw_pass_1 = SubResource("BoxMesh_7evwp")

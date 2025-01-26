@@ -20,6 +20,7 @@ var first_input:bool = false  ## the user pressed something for the first time
 
 signal player_dead(data)  ## signal that the player died
 signal player_moved(data)  ## sinal that the player moved the first time
+signal player_won(data)  ## player won!
 
 # how many coins where collected
 var coins_collected_amount: int = 0
@@ -35,6 +36,7 @@ var time_used: float = 0
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
     player_dead.connect(_on_player_dead)
+    player_won.connect(_on_player_won)
 
 
 func _process(_delta: float) -> void:
@@ -48,10 +50,18 @@ func dispatch_player_dead(data):
 func dispatch_player_moved(data):
     emit_signal("player_moved", data)
 
+func dispatch_player_won(data):
+    emit_signal("player_won", data)    
 
 func delayTimer(seconds: float):
     return get_tree().create_timer(seconds).timeout
 
+func _on_player_won(data):
+    var cam = $"../../WinCam"
+    cam.current = true
+    $"../../WinAnimationPlayer".play("new_animation")
+    await delayTimer(4)
+    get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_player_dead(data):
     if dead_in_space:
