@@ -24,7 +24,10 @@ signal player_won(data)  ## player won!
 
 # how many coins where collected
 var coins_collected_amount: int = 0
-signal coin_collected(total_amount: int)
+# how many points where collected (coins can give more than 1)
+var points_amount: int = 0
+# signal if coins or points changed
+signal coin_collected(coins_total_amount: int, points_total_amount: int)
 # time elapsed in seconds
 var time_used: float = 0
 
@@ -129,6 +132,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
     if area.is_in_group("coin"):
-        area.queue_free()
+        if area.get("points_worth"):
+            points_amount += area.get("points_worth")
         coins_collected_amount += 1
-        coin_collected.emit(coins_collected_amount)
+        area._collected(self)
+        coin_collected.emit(coins_collected_amount, points_amount)
