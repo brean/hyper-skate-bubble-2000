@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://duw12wjdvnqia"]
+[gd_scene load_steps=17 format=3 uid="uid://brw2y04rmiqkl"]
 
 [ext_resource type="Script" path="res://scenes/pause_menu_handler.gd" id="1_8i1m2"]
 [ext_resource type="PackedScene" uid="uid://0d6v34ejg2gr" path="res://scenes/world_environment.tscn" id="1_ngjse"]
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" uid="uid://dqsexqxx6h4uk" path="res://scenes/pause_menu.tscn" id="2_s25q2"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
+[ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="3_gc3ub"]
+[ext_resource type="Script" path="res://scenes/time_show.gd" id="3_i8u31"]
+[ext_resource type="Script" path="res://scenes/points_show.gd" id="3_r8nc3"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
 [ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="6_7qsua"]
@@ -55,6 +58,68 @@ visible = false
 [node name="GameTree" type="Node" parent="."]
 process_mode = 1
 
+[node name="ui_overlay" type="CanvasLayer" parent="GameTree"]
+
+[node name="Control" type="Control" parent="GameTree/ui_overlay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameTree/ui_overlay/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gc3ub")
+
+[node name="PanelContainer" type="PanelContainer" parent="GameTree/ui_overlay/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_gc3ub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="name" type="Label" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_gc3ub")
+text = "time: "
+
+[node name="data" type="Label" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("player_object")]
+layout_mode = 2
+theme = ExtResource("3_gc3ub")
+text = "0"
+script = ExtResource("3_i8u31")
+player_object = NodePath("../../../../../../../Bubble")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="name" type="Label" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_gc3ub")
+text = "points: "
+
+[node name="data" type="Label" parent="GameTree/ui_overlay/Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("player_object")]
+layout_mode = 2
+theme = ExtResource("3_gc3ub")
+text = "0"
+script = ExtResource("3_r8nc3")
+player_object = NodePath("../../../../../../../Bubble")
+
 [node name="WorldEnvironment" parent="GameTree" instance=ExtResource("1_ngjse")]
 
 [node name="Bubble" parent="GameTree" instance=ExtResource("2_t3376")]
@@ -81,9 +146,6 @@ navigation_mesh = SubResource("NavigationMesh_eudlr")
 
 [node name="SkateLevel" parent="GameTree/NavigationRegion3D" instance=ExtResource("2_g6jql")]
 
-[connection signal="on_paused" from="." to="PauseMenu" method="_on_paused"]
-[connection signal="continue_pressed" from="PauseMenu" to="." method="_on_continue"]
-
 [node name="WinAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../WinCam")
 libraries = {
@@ -93,4 +155,6 @@ libraries = {
 [node name="WinCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 
+[connection signal="on_paused" from="." to="PauseMenu" method="_on_paused"]
+[connection signal="continue_pressed" from="PauseMenu" to="." method="_on_continue"]
 [connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
