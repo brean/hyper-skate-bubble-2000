@@ -54,7 +54,10 @@ func delayTimer(seconds: float):
     return get_tree().create_timer(seconds).timeout
 
 func _on_player_won(data):
-    await delayTimer(5)
+    var cam = $"../../WinCam"
+    cam.current = true
+    $"../../WinAnimationPlayer".play("new_animation")
+    await delayTimer(4)
     get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_player_dead(data):
