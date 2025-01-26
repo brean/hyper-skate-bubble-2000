@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/pause_menu_handler.gd" id="1_8i1m2"]
 [ext_resource type="PackedScene" uid="uid://0d6v34ejg2gr" path="res://scenes/world_environment.tscn" id="1_ngjse"]
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="2_s25q2"]
+[ext_resource type="PackedScene" uid="uid://dqsexqxx6h4uk" path="res://scenes/pause_menu.tscn" id="2_s25q2"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
 [ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
@@ -16,6 +16,16 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_radius = 1.4
 agent_max_climb = 0.1
 
+[sub_resource type="Animation" id="Animation_slwgs"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_r832q"]
 resource_name = "new_animation"
 length = 5.0
@@ -27,16 +37,6 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -40, 20, 54, 4.93333, 1, -40, 200, 54)
-
-[sub_resource type="Animation" id="Animation_slwgs"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v527a"]
 _data = {
@@ -75,14 +75,6 @@ stream = ExtResource("6_7qsua")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45731, 0, 5.95354)
 target = NodePath("../Bubble")
 
-[node name="knifebot_character2" parent="GameTree" node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.963, 0, 43.6201)
-target = NodePath("../Bubble")
-
-[node name="knifebot_character3" parent="GameTree" node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.917, 0, -181.482)
-target = NodePath("../Bubble")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="GameTree"]
 navigation_mesh = SubResource("NavigationMesh_eudlr")
 
@@ -98,5 +90,3 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 
 [connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
-[connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character2" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
-[connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character3" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
