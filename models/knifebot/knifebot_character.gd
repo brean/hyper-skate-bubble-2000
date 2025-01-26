@@ -29,6 +29,8 @@ func _ready() -> void:
     if target.has_signal("player_moved"):
         active = false
         target.player_moved.connect(_on_player_moved)
+    if target.has_signal("player_won"):
+        target.player_won.connect(_on_player_won)
     # tell the target how far the knifebot is away
     if target.has_method("_on_knifebot_distance_changed"):
         knifebot_distance_to_target.connect(target._on_knifebot_distance_changed)
@@ -82,3 +84,9 @@ func align_with_y(xform, new_y):
     xform.basis.x = -xform.basis.z.cross(new_y)
     xform.basis = xform.basis.orthonormalized()
     return xform
+
+func _on_player_won(data):
+    $death_particles.emitting = true
+    $particles.emitting = false
+    active = false
+    $Node.hide()

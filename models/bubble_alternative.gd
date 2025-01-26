@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export_group("General Controls")
 @export_range(0.1, 1, 0.1) var sensitivity: float = 0.5  ## Overall sensitivity that will affect most movements
-@export_range(1, 100, 0.1) var movement_speed: float = 20  ## Controls how much the character moves per frame where the move input is active
+@export_range(1, 100, 0.1) var movement_speed: float = 12  ## Controls how much the character moves per frame where the move input is active
 @export var jump_force: int = 20  ## Controls how much upwards force will be applied for a jump
 @export var jump_mass: float = 2.0  ## Controls how quickly the character will fall back down after jumping
 
@@ -20,10 +20,12 @@ var first_input:bool = false  ## the user pressed something for the first time
 
 signal player_dead(data)  ## signal that the player died
 signal player_moved(data)  ## sinal that the player moved the first time
+signal player_won(data)  ## player won!
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
     player_dead.connect(_on_player_dead)
+    player_won.connect(_on_player_won)
 
 
 func _process(_delta: float) -> void:
@@ -37,10 +39,15 @@ func dispatch_player_dead(data):
 func dispatch_player_moved(data):
     emit_signal("player_moved", data)
 
+func dispatch_player_won(data):
+    emit_signal("player_won", data)    
 
 func delayTimer(seconds: float):
     return get_tree().create_timer(seconds).timeout
 
+func _on_player_won(data):
+    await delayTimer(5)
+    get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_player_dead(data):
     if dead_in_space:
