@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 @export_group("General Controls")
 @export_range(0.1, 1, 0.1) var sensitivity: float = 0.5  ## Overall sensitivity that will affect most movements
-@export_range(1, 100, 0.1) var movement_speed: float = 12  ## Controls how much the character moves per frame where the move input is active
-@export var jump_force: int = 20  ## Controls how much upwards force will be applied for a jump
-@export var jump_mass: float = 2.0  ## Controls how quickly the character will fall back down after jumping
+@export_range(1, 100, 0.1) var movement_speed: float = 20  ## Controls how much the character moves per frame where the move input is active
+@export_range(0, 100, 0.1) var jump_force: float = 15  ## Controls how much upwards force will be applied for a jump
+@export var jump_mass: float = 4.0  ## Controls how quickly the character will fall back down after jumping
 
 @export_group("Camera Handling (Mouse only)")
 @export var camera_deadzone: int = 100  ## Minimum distance the mouse has to be moved before the camera will react
@@ -21,6 +21,14 @@ var first_input:bool = false  ## the user pressed something for the first time
 signal player_dead(data)  ## signal that the player died
 signal player_moved(data)  ## sinal that the player moved the first time
 signal player_won(data)  ## player won!
+
+# how many coins where collected
+var coins_collected_amount: int = 0
+signal coin_collected(total_amount: int)
+# time elapsed in seconds
+var time_used: float = 0
+
+
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -61,6 +69,7 @@ func _on_player_dead(data):
 
 
 func _physics_process(delta):
+    time_used += delta
 
     if dead_in_space:
         # we died in place e.g. by touching spikes
@@ -113,3 +122,10 @@ func _input(event: InputEvent) -> void:
         var x_velocity = snapped(event.screen_velocity.x, 1)
         if abs(x_velocity) > camera_deadzone:
             rotation_degrees.y += (-x_velocity / rotation_divisor) * sensitivity
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+    if area.is_in_group("coin"):
+        area.queue_free()
+        coins_collected_amount += 1
+        coin_collected.emit(coins_collected_amount)
