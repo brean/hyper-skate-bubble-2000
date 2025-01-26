@@ -22,6 +22,7 @@ script = ExtResource("1_8i1m2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_s25q2")]
 process_mode = 2
+visible = false
 
 [node name="GameTree" type="Node" parent="."]
 process_mode = 1
@@ -30,7 +31,6 @@ process_mode = 1
 
 [node name="Bubble" parent="GameTree" instance=ExtResource("2_t3376")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.01, 0)
-jump_force = 6
 
 [node name="sound" type="Node" parent="GameTree"]
 
@@ -45,11 +45,14 @@ music_player = NodePath(".")
 stream = ExtResource("6_7qsua")
 
 [node name="knifebot_character" parent="GameTree" node_paths=PackedStringArray("target") instance=ExtResource("6_k8pwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45731, 0, 5.95354)target = NodePath("../Bubble")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45731, 0, 5.95354)
+target = NodePath("../Bubble")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="GameTree"]
 navigation_mesh = SubResource("NavigationMesh_eudlr")
 
 [node name="SkateLevel" parent="GameTree/NavigationRegion3D" instance=ExtResource("2_g6jql")]
 
+[connection signal="on_paused" from="." to="PauseMenu" method="_on_paused"]
+[connection signal="continue_pressed" from="PauseMenu" to="." method="_on_continue"]
 [connection signal="knifebot_distance_to_target" from="GameTree/knifebot_character" to="GameTree/WorldEnvironment" method="_on_knifebot_distance_changed"]
