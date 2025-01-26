@@ -27,7 +27,6 @@ signal knifebot_distance_to_target(distance:float)
 func _ready() -> void:
     # Only activate knifebot after player moved
     if target.has_signal("player_moved"):
-        print("INACTIVE!")
         active = false
         target.player_moved.connect(_on_player_moved)
     # tell the target how far the knifebot is away
