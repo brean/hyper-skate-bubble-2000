@@ -5,9 +5,8 @@ extends Label
 var active = true
 
 func _ready() -> void:
-    var player = $"../../../../../../../Bubble"
-    player.player_dead.connect(_on_stop)
-    player.player_won.connect(_on_stop)
+    player_object.player_dead.connect(_on_stop)
+    player_object.player_won.connect(_on_stop)
 
 func _on_stop(data):
     active = false

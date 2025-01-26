@@ -14,10 +14,10 @@
 [ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="8_un25m"]
 [ext_resource type="Texture2D" uid="uid://t7o3e8xkv37w" path="res://graphics/images/main_menu/button_hover.png" id="9_agarx"]
 [ext_resource type="Script" path="res://scripts/opacity_fader.gd" id="11_8c70d"]
-[ext_resource type="Texture2D" uid="uid://duc184kkvgaah" path="res://graphics/graffiti/logo.png" id="11_k7np0"]
 [ext_resource type="Texture2D" uid="uid://cy3vknowniqq6" path="res://graphics/images/main_menu/button_disabled.png" id="13_hq61g"]
 [ext_resource type="Script" path="res://scripts/btn_start.gd" id="14_277qq"]
 [ext_resource type="Script" path="res://scripts/btn_continue.gd" id="15_rstw1"]
+[ext_resource type="Texture2D" uid="uid://70o0riyrn1nn" path="res://graphics/images/poster.png" id="18_76nm7"]
 
 [sub_resource type="Animation" id="Animation_j75w3"]
 length = 0.001
@@ -342,7 +342,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_k7np0")
+texture = ExtResource("18_76nm7")
 stretch_mode = 3
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
