@@ -1,5 +1,6 @@
 # exported web project
 build/
+build_linux/
 
 # Godot 4+ specific ignores
 .godot/

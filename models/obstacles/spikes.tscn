@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c73qeic8qlwia"]
 
 [ext_resource type="PackedScene" uid="uid://cwju743g0m0ly" path="res://models/obstacles/spikes.glb" id="1_nd6vj"]
-[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_wuotu"]
+[ext_resource type="Script" uid="uid://dqvwwn2mpa1no" path="res://scripts/spikes.gd" id="1_wuotu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnd8f"]
 size = Vector3(1, 0.30304, 1)

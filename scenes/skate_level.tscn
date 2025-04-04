@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://j0upcrn7jbd0"]
 
 [ext_resource type="PackedScene" uid="uid://11ctkc21r5in" path="res://scenes/skate_park.tscn" id="1_hrd32"]
-[ext_resource type="Script" path="res://scripts/winning.gd" id="1_wdqjq"]
+[ext_resource type="Script" uid="uid://gst818cr1nh0" path="res://scripts/winning.gd" id="1_wdqjq"]
 [ext_resource type="PackedScene" uid="uid://7kscoh1psn4h" path="res://models/kenney_skate_park/rail-high.glb" id="2_mppjo"]
 [ext_resource type="PackedScene" uid="uid://4lkrdkx3j8li" path="res://models/kenney_racing_kit/barrierRed.glb" id="3_h2076"]
 [ext_resource type="PackedScene" uid="uid://b7rkla2l1wyf7" path="res://models/kenney_racing_kit/flagCheckers.glb" id="4_dej4a"]

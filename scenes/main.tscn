@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://brw2y04rmiqkl"]
 
-[ext_resource type="Script" path="res://scenes/pause_menu_handler.gd" id="1_8i1m2"]
+[ext_resource type="Script" uid="uid://bf15e4cq86ob3" path="res://scenes/pause_menu_handler.gd" id="1_8i1m2"]
 [ext_resource type="PackedScene" uid="uid://0d6v34ejg2gr" path="res://scenes/world_environment.tscn" id="1_ngjse"]
 [ext_resource type="PackedScene" uid="uid://j0upcrn7jbd0" path="res://scenes/skate_level.tscn" id="2_g6jql"]
 [ext_resource type="PackedScene" uid="uid://dqsexqxx6h4uk" path="res://scenes/pause_menu.tscn" id="2_s25q2"]
 [ext_resource type="PackedScene" uid="uid://bpifkiq67qtrj" path="res://scenes/bubble.tscn" id="2_t3376"]
 [ext_resource type="Theme" uid="uid://byll1hgbh48mq" path="res://themes/main_theme.tres" id="3_gc3ub"]
-[ext_resource type="Script" path="res://scenes/time_show.gd" id="3_i8u31"]
-[ext_resource type="Script" path="res://scenes/points_show.gd" id="3_r8nc3"]
+[ext_resource type="Script" uid="uid://cfbnan54kjlnl" path="res://scenes/time_show.gd" id="3_i8u31"]
+[ext_resource type="Script" uid="uid://c8ujmk10d0l6s" path="res://scenes/points_show.gd" id="3_r8nc3"]
 [ext_resource type="AudioStream" uid="uid://dvej53vup2w28" path="res://audio/main-theme.ogg" id="4_60cig"]
-[ext_resource type="Script" path="res://scripts/audio_fader.gd" id="5_n1elo"]
+[ext_resource type="Script" uid="uid://bsq5b46d6bfx5" path="res://scripts/audio_fader.gd" id="5_n1elo"]
 [ext_resource type="AudioStream" uid="uid://cg60qiv1pmv5w" path="res://audio/plop.ogg" id="6_7qsua"]
 [ext_resource type="PackedScene" uid="uid://cs0qg2oj0ftox" path="res://models/knifebot/knifebot_character.tscn" id="6_k8pwy"]
 
@@ -43,8 +43,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, -40, 20, 54, 4.93333, 1, -40, 200, 54)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v527a"]
 _data = {
-"RESET": SubResource("Animation_slwgs"),
-"new_animation": SubResource("Animation_r832q")
+&"RESET": SubResource("Animation_slwgs"),
+&"new_animation": SubResource("Animation_r832q")
 }
 
 [node name="Node3D" type="Node3D"]
@@ -149,7 +149,7 @@ navigation_mesh = SubResource("NavigationMesh_eudlr")
 [node name="WinAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../WinCam")
 libraries = {
-"": SubResource("AnimationLibrary_v527a")
+&"": SubResource("AnimationLibrary_v527a")
 }
 
 [node name="WinCam" type="Camera3D" parent="."]
