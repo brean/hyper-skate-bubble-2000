@@ -10,6 +10,9 @@ Will you stay ahead of the blade and skate your way to freedom, or will Knifebot
 
 Hyper Skate Bubble 2000: Roll fast. Don’t pop!!
 
+## Gameplay Video:
+https://www.youtube.com/watch?v=xy9uoUCH_no
+
 ## Team
  - [Andreas](https://github.com/brean)
  - Johannes
